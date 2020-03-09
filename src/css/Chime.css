@@ -1,0 +1,9 @@
+.chimes {
+    display: flex;
+}
+
+.chime {
+    height: .5em;
+    width: .5em;
+    margin: 3em;
+}
