@@ -7,44 +7,39 @@ import '../css/Chime.css';
 
 export const Chime = props => {
 
-    const [chime] = useState(new Audio(require(`../Sounds/chime${props.note}.wav`)))
-    const [isPlaying, setIsPlaying] = useState( true )
-    const [windspeed] = useState(props.windspeed)
+    let timer = 0;
+
+    const [chime] = useState(new Audio(require(`../Sounds/chime${props.note}.mp3`)))
 
     const playChime = () => {
         chime.pause();
         chime.currentTime = 0;
         chime.play();
         
-        console.log(isPlaying)
-        if ( isPlaying ) {
-            console.log('is playing')
-            setTimeout( playChime, Math.floor(Math.random() * 10000 ) + 10 )
-        } else {
-            console.log('is not playing')
-        } 
-        // change rate to random interval that decreases (gets faster) as windspeed increases
+        timer = setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 200)) + 10  )
+    }
+
+    const stopChime = () => {
+        if (timer) {
+            clearTimeout(timer);
+            timer = 0;
+        }
     }
         
     useEffect(() => {
-        console.log('mounted')
         playChime();
-        
         return () => {
-            setIsPlaying( false );
-            console.log('unmounted')
+            stopChime();
         };
+        // eslint-disable-next-line
     }, [])
 
     return (
         <div className = "chimes">
-
             {/* UI Idea: use an svg of chime that wil scale and shift postitions based off of the pitch of note */}
             {/* has vibration animation when making sound */}
             <ChimeGraphic />
-           
-            {/* <p className = "noteName">{props.note}</p>
-            <button onClick={() => { setIsPlaying(!isPlaying)}}>stop</button> */}
+    
         </div>
     );
 }

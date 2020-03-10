@@ -31,7 +31,10 @@ export const Chimes = () => {
     }
 
     useEffect(() => {
-        getWindspeed()
+        getWindspeed();
+        
+        return () => {
+        };
         // eslint-disable-next-line
     }, [])
 
@@ -49,16 +52,19 @@ export const Chimes = () => {
 
     return (
         <div>
-
             <NoteMenu 
                 addChime={ addChime }
             />
+            
+            <ul className="noteList">
+                { chimeNotes.map( (note, key) => <li key={key}>{ note }</li>)}
+            </ul>
 
             <button onClick={ () => { clear() }}>Clear</button>
 
-            <p>{windspeed}</p>
+            <p>{ windspeed }</p>
 
-            <body  className="chimes">
+            <div  className="chimes">
                 { chimeNotes.map(( note, key ) => (
                     <Chime 
                         note = { note } 
@@ -66,7 +72,7 @@ export const Chimes = () => {
                         windspeed = { windspeed }
                     />
                 ))}
-            </body>
+            </div>
         </div>
     )
 }

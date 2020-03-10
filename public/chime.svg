@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg 
+    height="100%"
+    width="100%"
+    x="0px"
+    y="0px"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:vectornator="http://vectornator.io" 
+    version="1.1" 
+    viewBox="0 0 146 1024"
+    >
+    <g id="Layer 1" vectornator:layerName="Layer 1">
+        <path stroke="#000000" stroke-width="8.53" d="M54.9775+122.033L91.0291+122.033C118.896+122.033+141.487+142.021+141.487+166.677L141.487+974.804C141.487+999.461+118.896+1019.45+91.0291+1019.45L54.9775+1019.45C27.1105+1019.45+4.5199+999.461+4.5199+974.804L4.5199+166.677C4.5199+142.021+27.1105+122.033+54.9775+122.033Z" fill="#30afb1" stroke-linecap="butt" opacity="1" stroke-linejoin="round"/>
+        <path stroke="#000000" stroke-width="22.74" d="M71.9682-0.372146L72.539+182.07" fill="none" stroke-linecap="butt" opacity="1" stroke-linejoin="round"/>
+        <path stroke="#000000" stroke-width="0.1" d="M54.833+180.341C54.833+171.763+62.6842+164.81+72.3692+164.81C82.0541+164.81+89.9053+171.763+89.9053+180.341C89.9053+188.919+82.0541+195.873+72.3692+195.873C62.6842+195.873+54.833+188.919+54.833+180.341Z" fill="#000000" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+        <path stroke="#000000" stroke-width="0.1" d="M71.6779+194.236C71.6779+194.044+71.7203+193.889+71.7727+193.889C71.825+193.889+71.8675+194.044+71.8675+194.236C71.8675+194.428+71.825+194.584+71.7727+194.584C71.7203+194.584+71.6779+194.428+71.6779+194.236Z" fill="#000000" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+        <path d="M111.569+148.245L111.569+148.245C124.582+148.245+135.131+161.266+135.131+177.328L135.131+971.045C135.131+987.107+124.582+1000.13+111.569+1000.13L111.569+1000.13C98.5558+1000.13+88.0066+987.107+88.0066+971.045L88.0066+177.328C88.0066+161.266+98.5558+148.245+111.569+148.245Z" opacity="0.606306" fill="#00f3b6"/>
+    </g>
+</svg>
