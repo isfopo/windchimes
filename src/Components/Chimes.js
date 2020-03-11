@@ -31,8 +31,7 @@ export const Chimes = () => {
     }
 
     useEffect(() => {
-        getWindspeed();
-        
+        getWindspeed(latitude, longitude);
         return () => {
         };
         // eslint-disable-next-line
@@ -51,18 +50,16 @@ export const Chimes = () => {
     }
 
     return (
-        <div>
+        <div className="App">
             <NoteMenu 
                 addChime={ addChime }
             />
             
-            <ul className="noteList">
+            <ul className="clearButton">
                 { chimeNotes.map( (note, key) => <li key={key}>{ note }</li>)}
             </ul>
 
-            <button onClick={ () => { clear() }}>Clear</button>
-
-            <p>{ windspeed }</p>
+            <button className="menuButton" onClick={ () => { clear() }}>Clear</button>
 
             <div  className="chimes">
                 { chimeNotes.map(( note, key ) => (
