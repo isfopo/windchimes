@@ -2,7 +2,7 @@
 
 ### Overview
 
-A peaceful windchime that will run in the browser or standalone. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, them save or share their set of chimes.
+A peaceful windchime that will run in the browser or standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, them save or share their set of chimes.
 
 ### Technical Summary
 
@@ -11,8 +11,8 @@ A peaceful windchime that will run in the browser or standalone. Using your devi
 - React Cookie ( to save user scales )
 - React Router ( share user scales )
 - React Animation ( to make the chimes vibrate )
-- Electron
-- PWA
+- Electron ( to make standalone app )
+- PWA ( built into create-react-app )
 
 ### APIs Used
 
@@ -20,7 +20,7 @@ A peaceful windchime that will run in the browser or standalone. Using your devi
 - Geolocation API
 - Web Audio API
 
-### Feature List (milestones)
+### Feature List
 
 - Customizible, save-able and share-able sets of chimes
     - User can choose from predetermined scales
@@ -28,10 +28,46 @@ A peaceful windchime that will run in the browser or standalone. Using your devi
     - User can save their scales with name and share them using URL
     - User can choose between multiple timbres ( metal, wood, synth, etc. )
 
-- Chimes react ring more or less rapidly based off the current windspeed in the location of device
+- Chimes ring more or less rapidly based off the current windspeed in the location of device
     - Under the hood, it gets the user location
     - Uses OpenWeatherMap to get curent windspeed
     - A higher windspeed will cause the chines to ring more rapidly
     - Mouse over will also ring chimes
 
 - Chimes are visualized with SVG that scales with note and will wobble when ringing
+
+### Milestones
+
+- Week 1
+    [x] Get current location and fetch wind speed
+    [x] Create note menu to add notes
+    [x] create note array in top-level component that interates to add indiviual chime component
+    [x] use Web Audio API to play and stop chimes
+    [x] add samples for metal chime sound
+    [x] create placeholder SVG for each chime
+    [] 
+
+- Week 2
+    [] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
+    [] add more timbres / materials ( Bamboo, Synth, etc. )
+    [] make 
+
+- Week 3
+    - Set up cookies to save user defined scales afetr close
+
+- Week 4
+
+- Week 5
+
+- Week 6
+    - 
+
+- Week 7
+    - Polish UI to make a simple and elegant interface
+    - Each chime should have an SVG that is larger for lower notes and different look based on selected material
+    - Create an SVG of a "braket" that "holds" the chimes. This should expand to fit more chimes.
+
+- Week 8
+    - Deploy Web app
+    - Create Electron app
+    - Create PWA
