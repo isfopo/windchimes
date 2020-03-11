@@ -39,21 +39,21 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 ### Milestones
 
 - Week 1
-    [x] Get current location and fetch wind speed
-    [x] Create note menu to add notes
-    [x] create note array in top-level component that interates to add indiviual chime component
-    [x] use Web Audio API to play and stop chimes
-    [x] add samples for metal chime sound
-    [x] create placeholder SVG for each chime
-    [] 
+    - [x] Get current location and fetch wind speed
+    - [x] Create note menu to add notes
+    - [x] create note array in top-level component that interates to add indiviual chime component
+    - [x] use Web Audio API to play and stop chimes
+    - [x] add samples for metal chime sound
+    - [x] create placeholder SVG for each chime
+    - [] 
 
 - Week 2
-    [] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
-    [] add more timbres / materials ( Bamboo, Synth, etc. )
-    [] make 
+    - [] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
+    - [] add more timbres / materials ( Bamboo, Synth, etc. )
+    - [] make 
 
 - Week 3
-    - Set up cookies to save user defined scales afetr close
+    - [] Set up cookies to save user defined scales afetr close
 
 - Week 4
 
@@ -63,11 +63,11 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - 
 
 - Week 7
-    - Polish UI to make a simple and elegant interface
-    - Each chime should have an SVG that is larger for lower notes and different look based on selected material
-    - Create an SVG of a "braket" that "holds" the chimes. This should expand to fit more chimes.
+    - [] Polish UI to make a simple and elegant interface
+    - [] Each chime should have an SVG that is larger for lower notes and different look based on selected material
+    - [] Create an SVG of a "braket" that "holds" the chimes. This should expand to fit more chimes.
 
 - Week 8
-    - Deploy Web app
-    - Create Electron app
-    - Create PWA
+    - [] Deploy Web app
+    - [] Create Electron app
+    - [] Create PWA
