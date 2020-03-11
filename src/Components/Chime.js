@@ -16,6 +16,7 @@ export const Chime = props => {
         chime.currentTime = 0;
         chime.play();
         
+        clearTimeout(timer);
         timer = setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 200)) + 10  )
     }
 
@@ -35,11 +36,10 @@ export const Chime = props => {
     }, [])
 
     return (
-        <div className = "chimes">
+        <div className = "chimes" onMouseOver={ () => { playChime() }}>
             {/* UI Idea: use an svg of chime that wil scale and shift postitions based off of the pitch of note */}
             {/* has vibration animation when making sound */}
             <ChimeGraphic />
-    
         </div>
     );
 }
