@@ -38,7 +38,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 ### Milestones
 
-- Week 1
+- Week 2
     - [x] Get current location and fetch wind speed
     - [x] Create note menu to add notes
     - [x] create note array in top-level component that interates to add indiviual chime component
@@ -48,25 +48,25 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Ring on mouse over
     - [ ] map to call stopChime on each Chime component on clear button
 
-- Week 2
+- Week 3
     - [ ] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
     - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
     - [ ] make dropdown menu to select material
     - [ ] automatically update mateials of chime
 
-- Week 3
+- Week 4
     - [ ] Set up saving system that adds user defined scales
     - [ ] Set up cookies to save user defined scales afetr close
 
-- Week 4
+- Week 5
     - [ ] Add React Router to add scale and material choices to URL
 
-- Week 5
+- Week 6
     - [ ] Polish UI to make a simple and elegant interface
     - [ ] Each chime should have an SVG that is larger for lower notes and different look based on selected material
     - [ ] Create an SVG of a "braket" that "holds" the chimes. This should expand to fit more chimes.
 
-- Week 6
+- Week 7
     - [ ] Deploy Web app
     - [ ] Create Electron app
     - [ ] Create PWA
