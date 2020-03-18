@@ -17,5 +17,8 @@ export const presetScales = {
     ],
     "Minor Seventh": [
         "C", "Eb", "F", "Bb"  
+    ],
+    "Javanese Pelog": [
+        "D", "Eb", "F", "Ab", "A", "Bb", "C"
     ]
 }
