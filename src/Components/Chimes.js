@@ -33,6 +33,7 @@ export const Chimes = () => {
     }
 
     const setScale = ( scale ) => {
+        setChimeNotes([])
         setChimeNotes( scale )
     }
 
