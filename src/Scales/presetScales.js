@@ -1,5 +1,4 @@
 export const presetScales = {
-    "---": [],
     "Major": [
         "C", "D", "E", "F", "G", "A", "B" 
     ],
