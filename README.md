@@ -22,15 +22,15 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 ### Feature List
 
-- Customizible, save-able and share-able sets of chimes
+- Customizable, save-able and share-able sets of chimes
     - User can choose from predetermined scales
-    - User can choose notes to create their own scale by adding note indiviually
+    - User can choose notes to create their own scale by adding note individually
     - User can save their scales with name and share them using URL
     - User can choose between multiple timbres ( metal, wood, synth, etc. )
 
 - Chimes ring more or less rapidly based off the current windspeed in the location of device
     - Under the hood, it gets the user location
-    - Uses OpenWeatherMap to get curent windspeed
+    - Uses OpenWeatherMap to get current windspeed
     - A higher windspeed will cause the chines to ring more rapidly
     - Mouse over will also ring chimes
 
@@ -41,7 +41,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - Week 2
     - [x] Get current location and fetch wind speed
     - [x] Create note menu to add notes
-    - [x] create note array in top-level component that interates to add indiviual chime component
+    - [x] create note array in top-level component that iterates to add individual chime component
     - [x] use Web Audio API to play and stop chimes
     - [x] add samples for metal chime sound
     - [x] create placeholder SVG for each chime
@@ -49,15 +49,15 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [ ] use .map to call stopChime on each Chime component on clear button
 
 - Week 3
-    - [ ] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
-    - [ ] make dropdown menu to select preset scales
+    - [x] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
+    - [x] make dropdown menu to select preset scales
     - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
     - [ ] make dropdown menu to select material
-    - [ ] automatically update mateials of chime
+    - [ ] automatically update materials of chime
 
 - Week 4
     - [ ] Set up saving system that adds user defined scales
-    - [ ] Set up cookies to save user defined scales afetr close
+    - [ ] Set up cookies to save user defined scales after close
 
 - Week 5
     - [ ] Add React Router to add scale and material choices to URL
@@ -65,7 +65,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - Week 6
     - [ ] Polish UI to make a simple and elegant interface
     - [ ] Each chime should have an SVG that is larger for lower notes and different look based on selected material
-    - [ ] Create an SVG of a "braket" that "holds" the chimes. This should expand to fit more chimes.
+    - [ ] Create an SVG of a "bracket" that "holds" the chimes. This should expand to fit more chimes.
 
 - Week 7
     - [ ] Deploy Web app
