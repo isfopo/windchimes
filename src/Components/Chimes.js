@@ -18,7 +18,7 @@ export const Chimes = () => {
     const [chimeNotes, setChimeNotes] = useState([]);
     const [windspeed, setWindspeed] = useState(0);
     
-    const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisivlle, Ky
+    const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisvlle, Ky
         
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherMapAPI}`)  
         .then( resp => {
@@ -63,8 +63,10 @@ export const Chimes = () => {
             <NoteMenu 
                 addChime={ addChime }
             />
+            
             <ScalesMenu 
                 setScale={ setScale }
+                chimeNotes={ chimeNotes }
             />
             
             <ul className="noteList">
