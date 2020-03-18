@@ -46,10 +46,11 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] add samples for metal chime sound
     - [x] create placeholder SVG for each chime
     - [x] Ring on mouse over
-    - [ ] map to call stopChime on each Chime component on clear button
+    - [ ] use .map to call stopChime on each Chime component on clear button
 
 - Week 3
     - [ ] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
+    - [ ] make dropdown menu to select preset scales
     - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
     - [ ] make dropdown menu to select material
     - [ ] automatically update mateials of chime

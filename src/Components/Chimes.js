@@ -6,7 +6,10 @@ import { NoteMenu } from "./NoteMenu";
 import { usePosition } from '../hooks/usePosition';
 import { useInterval } from '../hooks/useInterval';
 
+import { openWeatherMapAPI } from "../apiKey";
+
 import '../css/App.css';
+import { ScalesMenu } from './ScalesMenu';
 
 export const Chimes = () => {
 
@@ -14,11 +17,10 @@ export const Chimes = () => {
 
     const [chimeNotes, setChimeNotes] = useState([]);
     const [windspeed, setWindspeed] = useState(0);
-    const [apiKey] = useState('e7ec64ad75c8f58f1a1726bf7dc6c716');
     
-    const getWindspeed = (lat, lon) => {
+    const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisivlle, Ky
         
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)  
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherMapAPI}`)  
         .then( resp => {
             return resp.json() 
         }) // Convert data to json
@@ -30,8 +32,13 @@ export const Chimes = () => {
         });
     }
 
+    const setScale = ( scale ) => {
+        setChimeNotes( scale )
+    }
+
     useEffect(() => {
         getWindspeed(latitude, longitude);
+
         return () => {
         };
         // eslint-disable-next-line
@@ -46,6 +53,7 @@ export const Chimes = () => {
     }
 
     const clear = () => {
+        // TODO - to map to call stopChime on each Chime component
         setChimeNotes([])
     }
 
@@ -54,12 +62,15 @@ export const Chimes = () => {
             <NoteMenu 
                 addChime={ addChime }
             />
+            <ScalesMenu 
+                setScale={ setScale }
+            />
             
-            <ul className="clearButton">
-                { chimeNotes.map( (note, key) => <li key={key}>{ note }</li>)}
+            <ul className="noteList">
+                { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>)}
             </ul>
 
-            <button className="menuButton" onClick={ () => { clear() }}>Clear</button>
+            <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
 
             <div  className="chimes">
                 { chimeNotes.map(( note, key ) => (
