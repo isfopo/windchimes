@@ -46,18 +46,17 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] add samples for metal chime sound
     - [x] create placeholder SVG for each chime
     - [x] Ring on mouse over
-    - [ ] use .map to call stopChime on each Chime component on clear button
 
 - Week 3
     - [x] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
     - [x] make dropdown menu to select preset scales
+    - [ ] Set up saving system that adds user defined scales
+    - [ ] Set up cookies to save user defined scales after close
+
+- Week 4
     - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
     - [ ] make dropdown menu to select material
     - [ ] automatically update materials of chime
-
-- Week 4
-    - [ ] Set up saving system that adds user defined scales
-    - [ ] Set up cookies to save user defined scales after close
 
 - Week 5
     - [ ] Add React Router to add scale and material choices to URL
