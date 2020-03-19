@@ -51,7 +51,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
     - [x] make dropdown menu to select preset scales
     - [x] Set up saving system that adds user defined scales
-    - [ ] Set up cookies to save user defined scales after close
+    - [x] Set up cookies to save user defined scales after close
 
 - Week 4
     - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
