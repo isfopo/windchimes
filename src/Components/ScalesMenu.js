@@ -9,6 +9,7 @@ import { presetScales } from '../Scales/presetScales'
 export const ScalesMenu = props => {
 
     const [cookies, setCookie] = useCookies(['userScales'])
+    
     const [scales, setScales] = useState({...presetScales, ...cookies.userScales})
 
 
@@ -32,7 +33,7 @@ export const ScalesMenu = props => {
             
             <select id="scales" onChange={ handleChange }>
 
-                <option value="" selected disabled hidden>Choose here</option>
+                <option value="" defaultValue hidden>Choose here</option>
                 
                 { Object.keys( scales ).map( ( scale, key ) => (
                     <option 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CookiesProvider } from 'react-cookie';
 
-import Chime from "../Components/Chime";
+import Chime from "../Components/Chimetest";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 
@@ -18,6 +18,7 @@ export const Chimes = () => {
 
     const [chimeNotes, setChimeNotes] = useState([]);
     const [windspeed, setWindspeed] = useState(0);
+    const [material, setMaterial] = useState('Metal')
     
     const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisvlle, Ky
         
@@ -83,6 +84,7 @@ export const Chimes = () => {
                     <Chime 
                         note = { note } 
                         key = { key } 
+                        material = { material }
                         windspeed = { windspeed }
                     />
                 ))}
