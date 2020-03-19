@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useCookies } from 'react-cookie';
 
 import { SaveButton } from "./SaveButton"
 
@@ -7,7 +8,9 @@ import { presetScales } from '../Scales/presetScales'
 
 export const ScalesMenu = props => {
 
-    const [scales, setScales] = useState(presetScales)
+    const [cookies, setCookie] = useCookies(['userScales'])
+    const [scales, setScales] = useState({...presetScales, ...cookies.userScales})
+
 
     const handleChange = event => {
         props.setScale(event.target.value.split(","))
@@ -15,9 +18,11 @@ export const ScalesMenu = props => {
 
     const saveScale = () => {
         const newScaleName = prompt("What should we call your new set of chimes?");
+
         if ( newScaleName ) {
             scales[newScaleName] = [...props.chimeNotes];
             setScales(scales)
+            setCookie( 'userScales', scales )
         }
     }
 

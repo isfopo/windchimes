@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { CookiesProvider } from 'react-cookie';
 
 import Chime from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
+import { ScalesMenu } from './ScalesMenu';
 
 import { usePosition } from '../hooks/usePosition';
 import { useInterval } from '../hooks/useInterval';
@@ -9,7 +11,6 @@ import { useInterval } from '../hooks/useInterval';
 import { openWeatherMapAPI } from "../apiKey";
 
 import '../css/App.css';
-import { ScalesMenu } from './ScalesMenu';
 
 export const Chimes = () => {
 
@@ -64,10 +65,12 @@ export const Chimes = () => {
                 addChime={ addChime }
             />
             
-            <ScalesMenu 
-                setScale={ setScale }
-                chimeNotes={ chimeNotes }
-            />
+            <CookiesProvider>
+                <ScalesMenu 
+                    setScale={ setScale }
+                    chimeNotes={ chimeNotes }
+                />
+            </CookiesProvider>
             
             <ul className="noteList">
                 { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>)}
