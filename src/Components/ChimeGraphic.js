@@ -5,7 +5,7 @@ import { ReactSVG } from 'react-svg'
 
 import '../css/Chime.css'
 
-const useStyles = createUseStyles({ // stuggling with creating dynamic chime sizes, make need unique SVG for each
+const useStyles = createUseStyles({ // struggling with creating dynamic chime sizes, make need unique SVG for each
     chime: {
         height: 100,
         width: 100,

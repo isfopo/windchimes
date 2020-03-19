@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { CookiesProvider } from 'react-cookie';
 
-import Chime from "../Components/Chimetest";
+import Chime from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
+import { MaterialMenu } from './MaterialMenu';
 
 import { usePosition } from '../hooks/usePosition';
 import { useInterval } from '../hooks/useInterval';
@@ -18,7 +19,7 @@ export const Chimes = () => {
 
     const [chimeNotes, setChimeNotes] = useState([]);
     const [windspeed, setWindspeed] = useState(0);
-    const [material, setMaterial] = useState('Metal')
+    const [material, setMaterial] = useState('Metal');
     
     const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisvlle, Ky
         
@@ -27,6 +28,7 @@ export const Chimes = () => {
             return resp.json() 
         }) // Convert data to json
         .then( data => {
+            console.log(data.wind.speed)
             setWindspeed(data.wind.speed); // in meters per second
         })
         .catch( err => {
@@ -72,6 +74,10 @@ export const Chimes = () => {
                     chimeNotes={ chimeNotes }
                 />
             </CookiesProvider>
+
+            <MaterialMenu 
+                setMaterial={ setMaterial }
+            />
             
             <ul className="noteList">
                 { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>)}

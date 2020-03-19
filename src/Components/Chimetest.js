@@ -7,32 +7,38 @@ import '../css/Chime.css';
 
 export const Chime = props => {
 
-    const [playFromPosition, setPlayFromPosition] = useState(0)
-    const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING)
+    let timer = undefined;
+
+    const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED)
+    const [position, setPosition] = useState(0)
 
     const playChime = () => {
-        setPlayFromPosition(0)
+        console.log('should play')
+        setPlayStatus(Sound.status.STOPPED)
+        setPosition(0)
+        setPlayStatus(Sound.status.PLAYING)
 
-        setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 400)) + 100  )
+        timer = setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 400)) + 100  )
     }
 
-    const stopChime = () => {
-
-    }
-        
     useEffect(() => {
+        playChime();
         return () => {
-            stopChime();
+            clearTimeout(timer);
         };
         // eslint-disable-next-line
     }, [])
 
     return (
-        <div className = "chimes" onMouseOver={ () => { playChime() }}>
+        <div 
+            className = "chimes" 
+            onMouseEnter={ () => { playChime() }}
+            >
             <ChimeGraphic />
             <Sound 
                 url={`Sounds/${props.material}/chime${props.note}.mp3`}
-                playStatus={playStatus}
+                playStatus={ playStatus }
+                position={position}
             />
         </div>
     );

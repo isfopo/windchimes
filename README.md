@@ -8,6 +8,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - React/Javascript
 - JSS
+- React Sound
 - React Cookie ( to save user scales )
 - React Router ( share user scales )
 - React Animation ( to make the chimes vibrate )
@@ -54,8 +55,8 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Set up cookies to save user defined scales after close
 
 - Week 4
-    - [ ] add more timbres / materials ( Bamboo, Synth, etc. )
-    - [ ] make dropdown menu to select material
+    - [x] add more timbres / materials ( Bamboo, Synth, etc. )
+    - [x] make dropdown menu to select material
     - [ ] automatically update materials of chime
 
 - Week 5

@@ -8,7 +8,7 @@ export const Chime = props => {
 
     let timer = undefined;
 
-    const [chime] = useState(new Audio(require(`../Sounds/chime${props.note}.mp3`)))
+    const [chime] = useState(new Audio(require(`../../public/Sounds/${props.material}/chime${props.note}.mp3`)))
 
     const playChime = () => {
         chime.pause();
