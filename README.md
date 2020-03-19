@@ -8,7 +8,6 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - React/Javascript
 - JSS
-- React Sound
 - React Cookie ( to save user scales )
 - React Router ( share user scales )
 - React Animation ( to make the chimes vibrate )
