@@ -24,7 +24,7 @@ export const ChimeGraphic = props => {
 
     return (
         <>
-        <ReactSVG 
+            <ReactSVG 
                 className={classes.chime}
                 src="graphics/chime.svg"
             />

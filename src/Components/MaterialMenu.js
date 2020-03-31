@@ -3,7 +3,7 @@ import React from 'react'
 export const MaterialMenu = props => {
 
     const handleChange = event => {
-        props.setMaterial(event.target.value)
+        props.changeMaterial(event.target.value)
     }
 
     return (

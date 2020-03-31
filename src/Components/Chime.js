@@ -12,19 +12,24 @@ export const Chime = props => {
 
     const playChime = () => {
         chime.pause();
+
         chime.currentTime = 0;
-        chime.play();
-
+        chime.play()//.catch( handlePlayError() );
+        
         clearTimeout(timer);
-        timer = setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 400)) + 100  )
+        timer = setTimeout( playChime, Math.floor( Math.random() * 10000 - ( props.windspeed * 400 )) + 100  )
     }
-
+    
     const stopChime = () => {
         if (timer) {
             chime.pause();
             clearTimeout(timer);
-            timer = 0;
+            // timer = undefined;
         }
+    }
+
+    const handlePlayError = err => {
+
     }
         
     useEffect(() => {
@@ -41,5 +46,3 @@ export const Chime = props => {
         </div>
     );
 }
-
-export default Chime;

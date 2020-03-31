@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Sound from 'react-sound';
 
 import { ChimeGraphic } from './ChimeGraphic';
 
@@ -9,39 +8,41 @@ export const Chime = props => {
 
     let timer = undefined;
 
-    const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED)
-    const [position, setPosition] = useState(0)
+    const [chime] = useState(new Audio(require(`../../public/Sounds/${props.material}/chime${props.note}.mp3`)))
 
     const playChime = () => {
-        console.log('should play')
-        setPlayStatus(Sound.status.STOPPED)
-        setPosition(0)
-        setPlayStatus(Sound.status.PLAYING)
+        chime.pause();
 
-        timer = setTimeout( playChime, Math.floor(Math.random() * 10000 - (props.windspeed * 400)) + 100  )
+        chime.currentTime = 0;
+        chime.play()//.catch( handlePlayError() );
+        
+        clearTimeout(timer);
+        timer = setTimeout( playChime, Math.floor( Math.random() * 10000 - ( props.windspeed * 400 )) + 100  )
+    }
+    
+    const stopChime = () => {
+        if (timer) {
+            chime.pause();
+            clearTimeout(timer);
+            // timer = undefined;
+        }
     }
 
+    const handlePlayError = err => {
+
+    }
+        
     useEffect(() => {
         playChime();
         return () => {
-            clearTimeout(timer);
+            stopChime();
         };
         // eslint-disable-next-line
     }, [])
 
     return (
-        <div 
-            className = "chimes" 
-            onMouseEnter={ () => { playChime() }}
-            >
+        <div className = "chimes" onMouseOver={ () => { playChime() }}>
             <ChimeGraphic />
-            <Sound 
-                url={`Sounds/${props.material}/chime${props.note}.mp3`}
-                playStatus={ playStatus }
-                position={position}
-            />
         </div>
     );
 }
-
-export default Chime;

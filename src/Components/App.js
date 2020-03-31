@@ -1,27 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-import logo from '../logo.svg';
-
-import '../css/App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import { Chimes } from './Chimes';
 
-class App extends Component {
+import '../css/App.css';
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />  
+export const App = () => {
 
-          <div className="chime-wrapper">
-            <Chimes />
-          </div>
+  const [path, setPath] = useState('/');
 
-        </header>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+      </header>
+
+
+      <BrowserRouter>
+        <div className="chime-wrapper">
+          <Route exact path='/' component={Chimes} />
+          <Route path='/:notes' component={Chimes} />
+       
+        </div>
+      </BrowserRouter>
+
+    </div>
+  );
 }
+
 
 export default App;

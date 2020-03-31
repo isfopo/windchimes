@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CookiesProvider } from 'react-cookie';
+import { generatePath, Link } from "react-router-dom";
 
-import Chime from "../Components/Chime";
+import { Chime } from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 import { MaterialMenu } from './MaterialMenu';
@@ -13,27 +14,21 @@ import { openWeatherMapAPI } from "../apiKey";
 
 import '../css/App.css';
 
-export const Chimes = () => {
+export const Chimes = props => {
 
     const {latitude, longitude} = usePosition();
 
-    const [chimeNotes, setChimeNotes] = useState([]);
+    const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
     const [windspeed, setWindspeed] = useState(0);
     const [material, setMaterial] = useState('Metal');
     
-    const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisvlle, Ky
+    const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisville, Ky
         
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherMapAPI}`)  
-        .then( resp => {
-            return resp.json() 
-        }) // Convert data to json
-        .then( data => {
-            console.log(data.wind.speed)
-            setWindspeed(data.wind.speed); // in meters per second
-        })
-        .catch( err => {
-            console.error(err)
-        });
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${ lat }&lon=${ lon }&appid=${ openWeatherMapAPI }`)  
+
+        .then( resp => { return resp.json() })
+        .then( data => { setWindspeed(data.wind.speed) }) // in meters per second
+        .catch( err => { console.error(err) });
     }
 
     const setScale = ( scale ) => {
@@ -41,9 +36,19 @@ export const Chimes = () => {
         setChimeNotes( scale )
     }
 
+    const changeMaterial = e => {
+        setMaterial(e)
+    }
+
+    const updatePath = () => {
+        const noteString = chimeNotes.toString()
+
+        //props.history.push( generatePath('/:notes', { notes : noteString || "/"}))
+        console.log(noteString)
+    }
+
     useEffect(() => {
         getWindspeed(latitude, longitude);
-
         return () => {
         };
         // eslint-disable-next-line
@@ -57,35 +62,12 @@ export const Chimes = () => {
         setChimeNotes([...chimeNotes, note])
     }
 
-    const clear = () => {
-        // TODO - to map to call stopChime on each Chime component
-        setChimeNotes([])
-    }
+    const renderChimes = () => {
 
-    return (
-        <div className="App">
-            <NoteMenu 
-                addChime={ addChime }
-            />
-            
-            <CookiesProvider>
-                <ScalesMenu 
-                    setScale={ setScale }
-                    chimeNotes={ chimeNotes }
-                />
-            </CookiesProvider>
+        updatePath()
 
-            <MaterialMenu 
-                setMaterial={ setMaterial }
-            />
-            
-            <ul className="noteList">
-                { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>)}
-            </ul>
-
-            <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
-
-            <div  className="chimes">
+        return (
+            <>
                 { chimeNotes.map(( note, key ) => (
                     <Chime 
                         note = { note } 
@@ -94,7 +76,42 @@ export const Chimes = () => {
                         windspeed = { windspeed }
                     />
                 ))}
+            </>
+        )
+    }
+
+    const clear = () => {
+        setChimeNotes([])
+    }
+
+    return (
+        <div>
+            <NoteMenu 
+                addChime={ addChime }
+            />
+
+            <MaterialMenu 
+                changeMaterial={ changeMaterial }
+            />
+
+            <CookiesProvider>
+                <ScalesMenu 
+                    setScale={ setScale }
+                    chimeNotes={ chimeNotes }
+                />
+            </CookiesProvider>
+
+            <ul className="noteList">
+                { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>) }
+            </ul>
+
+            <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
+
+            
+            <div className="chimes">
+                { renderChimes() }
             </div>
+
         </div>
     )
 }
