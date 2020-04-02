@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -7,8 +7,6 @@ import { Chimes } from './Chimes';
 import '../css/App.css';
 
 export const App = () => {
-
-  const [path, setPath] = useState('/');
 
   return (
     <div className="App">

@@ -45,7 +45,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] use Web Audio API to play and stop chimes
     - [x] add samples for metal chime sound
     - [x] create placeholder SVG for each chime
-    - [x] Ring on mouse over
+    - [x] Ring on mouse enter
 
 - Week 3
     - [x] setup scale presets ( Major, Minor, Javanese Pelog, etc. )
@@ -56,7 +56,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - Week 4
     - [x] add more timbres / materials ( Bamboo, Synth, etc. )
     - [x] make dropdown menu to select material
-    - [ ] automatically update materials of chime
+    - [x] automatically update materials of chime
 
 - Week 5
     - [ ] Add React Router to add scale and material choices to URL

@@ -27,7 +27,6 @@ export const Chimes = props => {
 
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
     const [windspeed, setWindspeed] = useState(0);
-    const [material, setMaterial] = useState('metal');
     const [isLoaded, setLoaded] = useState(false);
     const sampler = useRef(null);
     
@@ -46,21 +45,31 @@ export const Chimes = props => {
     }
 
     const changeMaterial = e => {
-        setMaterial(e)
+        sampler.current = new Sampler(
+            samplePaths,
+            {
+                baseUrl : `./Sounds/${e}/`,
+                onload: () => {
+                    console.log('loaded')
+                    setLoaded(true);
+                }
+            }
+        ).toMaster();
     }
 
-    const playChime = () => {
+    const playChime = note => {
         if (isLoaded) {
-            sampler.current.triggerAttackRelease( "D4", 2.5 );
+            sampler.current.triggerAttackRelease( note, 2.5 );
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {  // DRY
         getWindspeed(latitude, longitude);
 
         sampler.current = new Sampler(
             samplePaths,
             {
+                baseUrl : `./Sounds/Metal/`,
                 onload: () => {
                     console.log('loaded')
                     setLoaded(true);
@@ -81,22 +90,6 @@ export const Chimes = props => {
         setChimeNotes([...chimeNotes, note])
     }
 
-    const renderChimes = () => {
-
-        return (
-            <>
-                { chimeNotes.map(( note, key ) => (
-                    <Chime 
-                        note = { note } 
-                        key = { key } 
-                        material = { material }
-                        windspeed = { windspeed }
-                    />
-                ))}
-            </>
-        )
-    }
-
     const clear = () => {
         setChimeNotes([])
     }
@@ -107,10 +100,6 @@ export const Chimes = props => {
                 addChime={ addChime }
             />
 
-            <MaterialMenu 
-                changeMaterial={ changeMaterial }
-            />
-
             <CookiesProvider>
                 <ScalesMenu 
                     setScale={ setScale }
@@ -118,19 +107,21 @@ export const Chimes = props => {
                 />
             </CookiesProvider>
 
-            <button 
-                onClick={ () => { playChime() } }
-            >play</button>
-
-            <ul className="noteList">
-                { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>) }
-            </ul>
+            <MaterialMenu 
+                changeMaterial={ changeMaterial }
+            />
 
             <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
 
-            
             <div className="chimes">
-                { renderChimes() }
+                { chimeNotes.map(( note, key ) => (
+                    <Chime 
+                        key = { key } 
+                        note = { note }
+                        windspeed = { windspeed }
+                        playChime = { playChime }
+                    />
+                ))}
             </div>
 
         </div>
