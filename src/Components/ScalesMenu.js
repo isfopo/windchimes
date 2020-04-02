@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie';
 
 import { SaveButton } from "./SaveButton"
 
-import { presetScales } from '../Scales/presetScales'
+import { presetScales } from '../resources/presetScales'
 
 
 export const ScalesMenu = props => {
