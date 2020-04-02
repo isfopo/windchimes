@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from 'react';
+// Libraries
+import React, { useState, useEffect, useRef } from 'react';
 import { CookiesProvider } from 'react-cookie';
-import { generatePath, Link } from "react-router-dom";
+import { Sampler } from "tone";
+//import { generatePath, Link } from "react-router-dom";
 
+// Components
 import { Chime } from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 import { MaterialMenu } from './MaterialMenu';
 
+// Hooks
 import { usePosition } from '../hooks/usePosition';
 import { useInterval } from '../hooks/useInterval';
 
-import { openWeatherMapAPI } from "../apiKey";
+// Resources
+import { openWeatherMapAPI } from "../resources/apiKey";
+import { samplePaths } from "../resources/samplePaths";
 
+// Styles
 import '../css/App.css';
 
 export const Chimes = props => {
@@ -20,7 +27,9 @@ export const Chimes = props => {
 
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
     const [windspeed, setWindspeed] = useState(0);
-    const [material, setMaterial] = useState('Metal');
+    const [material, setMaterial] = useState('metal');
+    const [isLoaded, setLoaded] = useState(false);
+    const sampler = useRef(null);
     
     const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisville, Ky
         
@@ -40,15 +49,25 @@ export const Chimes = props => {
         setMaterial(e)
     }
 
-    const updatePath = () => {
-        const noteString = chimeNotes.toString()
-
-        //props.history.push( generatePath('/:notes', { notes : noteString || "/"}))
-        console.log(noteString)
+    const playChime = () => {
+        if (isLoaded) {
+            sampler.current.triggerAttackRelease( "D4", 2.5 );
+        }
     }
 
     useEffect(() => {
         getWindspeed(latitude, longitude);
+
+        sampler.current = new Sampler(
+            samplePaths,
+            {
+                onload: () => {
+                    console.log('loaded')
+                    setLoaded(true);
+                }
+            }
+        ).toMaster();
+
         return () => {
         };
         // eslint-disable-next-line
@@ -63,8 +82,6 @@ export const Chimes = props => {
     }
 
     const renderChimes = () => {
-
-        updatePath()
 
         return (
             <>
@@ -100,6 +117,10 @@ export const Chimes = props => {
                     chimeNotes={ chimeNotes }
                 />
             </CookiesProvider>
+
+            <button 
+                onClick={ () => { playChime() } }
+            >play</button>
 
             <ul className="noteList">
                 { chimeNotes.map( (note, key) => <li key={ key }>{ note }</li>) }
