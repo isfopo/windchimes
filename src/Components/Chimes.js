@@ -83,7 +83,7 @@ export const Chimes = props => {
     }
 
     const addChime = note => {
-        setChimeNotes([...chimeNotes, note])
+        setChimeNotes([...chimeNotes, `${note}${octave}`])
     }
 
     useEffect(() => {
@@ -122,7 +122,6 @@ export const Chimes = props => {
                     <Chime 
                         key = { key } 
                         note = { note }
-                        octave = { octave }
                         windspeed = { windspeed }
                         playChime = { playChime }
                     />

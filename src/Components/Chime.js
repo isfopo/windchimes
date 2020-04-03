@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { ChimeGraphic } from './ChimeGraphic';
 
@@ -8,11 +8,16 @@ export const Chime = props => {
 
     let isPlaying = useRef(true);
 
-    const [octave] = useState(props.octave)
+    const splitNote = noteIn => {
+        var regex = new RegExp('([0-9]+)|([a-zA-Z]+)','g');
+        return noteIn.match(regex);
+    }
 
+    const [note, octave] = splitNote(props.note)
+    
     const callPlayChime = () => {
         if (isPlaying.current) {
-            props.playChime(`${props.note}${octave}`)
+            props.playChime(`${note}${octave}`)
             setTimeout( callPlayChime, Math.floor( Math.random() * 10000 - ( props.windspeed * 400 )) + 100  )
         }
     }
@@ -28,7 +33,7 @@ export const Chime = props => {
 
     return (
         <div className = "chimes" onMouseEnter={ () => { callPlayChime() } }> 
-            <p> {props.note}{octave} </p>
+            <p> {note}{octave} </p>
             <ChimeGraphic />
         </div>
     );
