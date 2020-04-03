@@ -75,5 +75,5 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - Known Bugs
     - [ ] Scales menu only updates on second time a scale is chosen
-    - [ ] Existing chimes shift octave when octave is changed - should ony effect new chimes
+    - [x] Existing chimes shift octave when octave is changed - should ony effect new chimes
     - [x] Lat and lon are undefined when getWindspeed is called
