@@ -66,8 +66,14 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [ ] Polish UI to make a simple and elegant interface
     - [ ] Each chime should have an SVG that is larger for lower notes and different look based on selected material
     - [ ] Create an SVG of a "bracket" that "holds" the chimes. This should expand to fit more chimes.
+    - [ ] Chime graphics vibrate while ringing
 
 - Week 7
     - [ ] Deploy Web app
     - [ ] Create Electron app
     - [ ] Create PWA
+
+- Known Bugs
+    - [ ] Scales menu only updates on second time a scale is chosen
+    - [ ] Existing chimes shift octave when octave is changed - should ony effect new chimes
+    - [x] Lat and lon are undefined when getWindspeed is called
