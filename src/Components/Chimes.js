@@ -44,11 +44,11 @@ export const Chimes = props => {
         setChimeNotes( scale )
     }
 
-    const changeMaterial = e => {
+    const makeSampler = material => {
         sampler.current = new Sampler(
             samplePaths,
             {
-                baseUrl : `./Sounds/${e}/`,
+                baseUrl : `./Sounds/${material}/`,
                 onload: () => {
                     console.log('loaded')
                     setLoaded(true);
@@ -65,17 +65,7 @@ export const Chimes = props => {
 
     useEffect(() => {  // DRY
         getWindspeed(latitude, longitude);
-
-        sampler.current = new Sampler(
-            samplePaths,
-            {
-                baseUrl : `./Sounds/Metal/`,
-                onload: () => {
-                    console.log('loaded')
-                    setLoaded(true);
-                }
-            }
-        ).toMaster();
+        makeSampler('Metal')
 
         return () => {
         };
@@ -108,7 +98,7 @@ export const Chimes = props => {
             </CookiesProvider>
 
             <MaterialMenu 
-                changeMaterial={ changeMaterial }
+                changeMaterial={ makeSampler }
             />
 
             <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
