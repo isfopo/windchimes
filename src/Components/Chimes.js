@@ -19,7 +19,7 @@ import { openWeatherMapAPI } from "../resources/apiKey";
 import { samplePaths } from "../resources/samplePaths";
 
 // Styles
-import '../css/App.css';
+//import '../css/App.css';
 
 export const Chimes = props => {
 
@@ -28,8 +28,29 @@ export const Chimes = props => {
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
     const [windspeed, setWindspeed] = useState(0);
     const [isLoaded, setLoaded] = useState(false);
+    const [octave, setOctave] = useState(4);
     const sampler = useRef(null);
     
+    useEffect(() => {
+        getWindspeed(latitude, longitude);
+        makeSampler('Metal')
+        // eslint-disable-next-line
+    }, [])
+
+    useInterval(() => {
+        getWindspeed(latitude, longitude)
+    }, 60000)
+
+    const makeSampler = material => {
+        sampler.current = new Sampler(
+            samplePaths,
+            {
+                baseUrl : `./Sounds/${material}/`,
+                onload: () => { setLoaded(true); }
+            }
+        ).toMaster();
+    }
+
     const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisville, Ky
         
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${ lat }&lon=${ lon }&appid=${ openWeatherMapAPI }`)  
@@ -44,17 +65,8 @@ export const Chimes = props => {
         setChimeNotes( scale )
     }
 
-    const makeSampler = material => {
-        sampler.current = new Sampler(
-            samplePaths,
-            {
-                baseUrl : `./Sounds/${material}/`,
-                onload: () => {
-                    console.log('loaded')
-                    setLoaded(true);
-                }
-            }
-        ).toMaster();
+    const changeOctave = shift => {
+        setOctave(octave + shift)
     }
 
     const playChime = note => {
@@ -63,21 +75,9 @@ export const Chimes = props => {
         }
     }
 
-    useEffect(() => {  // DRY
-        getWindspeed(latitude, longitude);
-        makeSampler('Metal')
-
-        return () => {
-        };
-        // eslint-disable-next-line
-    }, [])
-
-    useInterval(() => {
-        getWindspeed(latitude, longitude)
-    }, 60000)
-
     const addChime = note => {
         setChimeNotes([...chimeNotes, note])
+        // props.history.push("newChime")
     }
 
     const clear = () => {
@@ -87,7 +87,9 @@ export const Chimes = props => {
     return (
         <div>
             <NoteMenu 
-                addChime={ addChime }
+                addChime= { addChime }
+                changeOctave= { changeOctave }
+                octave={octave}
             />
 
             <CookiesProvider>
@@ -108,6 +110,7 @@ export const Chimes = props => {
                     <Chime 
                         key = { key } 
                         note = { note }
+                        octave = { octave }
                         windspeed = { windspeed }
                         playChime = { playChime }
                     />

@@ -10,14 +10,14 @@ export const Chime = props => {
 
     const callPlayChime = () => {
         if (isPlaying.current) {
-            props.playChime(`${props.note}4`)
+            props.playChime(`${props.note}${props.octave}`)
             setTimeout( callPlayChime, Math.floor( Math.random() * 10000 - ( props.windspeed * 400 )) + 100  )
         }
     }
         
     useEffect(() => {
         callPlayChime();
-        
+
         return () => {
             isPlaying.current = false;
         };
@@ -25,8 +25,8 @@ export const Chime = props => {
     }, [])
 
     return (
-        <div className = "chimes" onMouseEnter={ () => { callPlayChime() }}> 
-            <p> {props.note} </p>
+        <div className = "chimes" onMouseEnter={ () => { callPlayChime() } }> 
+            <p> {props.note}{props.octave} </p>
             <ChimeGraphic />
         </div>
     );

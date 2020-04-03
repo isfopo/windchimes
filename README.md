@@ -7,6 +7,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 ### Technical Summary
 
 - React/Javascript
+- Tone.js
 - JSS
 - React Cookie ( to save user scales )
 - React Router ( share user scales )

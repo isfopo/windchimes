@@ -4,8 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import { Chimes } from './Chimes';
 
-import '../css/App.css';
-
 export const App = () => {
 
   return (
@@ -13,12 +11,10 @@ export const App = () => {
       <header className="App-header">
       </header>
 
-
       <BrowserRouter>
         <div className="chime-wrapper">
           <Route exact path='/' component={Chimes} />
           <Route path='/:notes' component={Chimes} />
-       
         </div>
       </BrowserRouter>
 
