@@ -1,23 +1,23 @@
 export const presetScales = {
     "Major": [
-        "C", "D", "E", "F", "G", "A", "B" 
+        "C4", "D4", "E4", "F4", "G4", "A4", "B4" 
     ],
     "Minor": [
-        "C", "D", "Eb", "F", "G", "Ab", "Bb" 
+        "C4", "D4", "Eb4", "F4", "G4", "Ab4", "Bb4" 
     ],
     "Major Pentatonic": [
-        "C", "D", "E", "G", "A"
+        "C4", "D4", "E4", "G4", "A4"
     ],
     "Minor Pentatonic": [
-        "C", "Eb", "F", "G", "Bb" 
+        "C4", "Eb4", "F4", "G4", "Bb4" 
     ],
     "Major Seventh": [
-        "C", "E", "G", "B" 
+        "C4", "E4", "G4", "B4" 
     ],
     "Minor Seventh": [
-        "C", "Eb", "F", "Bb"  
+        "C4", "Eb4", "F4", "Bb4"  
     ],
     "Javanese Pelog": [
-        "D", "Eb", "F", "Ab", "A", "Bb", "C"
+        "D4", "Eb4", "F4", "Ab4", "A4", "Bb4", "C4"
     ]
 }
