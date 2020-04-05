@@ -26,7 +26,7 @@ export const Chimes = props => {
     const {latitude, longitude} = usePosition();
 
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
-    const [material, setMaterial] = useState('Metal')
+    const [material, setMaterial] = useState( 'Metal' )
     const [windspeed, setWindspeed] = useState(0);
     const [isLoaded, setLoaded] = useState(false);
     const [octave, setOctave] = useState(4);
@@ -73,7 +73,11 @@ export const Chimes = props => {
     }
 
     const changeOctave = shift => {
-        setOctave(octave + shift)
+        const newOctave = octave + shift
+
+        if ( newOctave >= 2 && newOctave <= 6 ) {
+                setOctave( newOctave )
+            }
     }
 
     const playChime = note => {
@@ -98,15 +102,16 @@ export const Chimes = props => {
     return (
         <div>
             <NoteMenu 
-                addChime= { addChime }
-                changeOctave= { changeOctave }
-                octave={octave}
+                addChime = { addChime }
+                changeOctave = { changeOctave }
+                octave = { octave }
             />
 
             <CookiesProvider>
                 <ScalesMenu 
                     setScale={ setScale }
                     chimeNotes={ chimeNotes }
+                    clear={ clear }
                 />
             </CookiesProvider>
 
@@ -115,7 +120,6 @@ export const Chimes = props => {
             />
 
             <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
-            <button onClick={() => {console.log(chimeNotes)}}>show</button>
 
             <div className="chimes">
                 { chimeNotes.map(( note, key ) => (
