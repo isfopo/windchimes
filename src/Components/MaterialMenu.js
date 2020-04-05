@@ -1,22 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import Select from 'react-select'
 
 export const MaterialMenu = props => {
 
+    // I'm sure there's a better way to do this other than writing all materials by hand. 
+    // Maybe there's a way to get the contents of the "Sounds" folder as an array?
+
+    const [isDisabled, setIsDisabled ] = useState(true) 
+    const [ options ] = useState([
+        { value: "Metal", label: "Metal" },
+        { value: "Kalimba", label: "Kalimba" },
+        { value: "Fade", label: "Fade" },
+        { value: "Wood", label: "Wood" },
+        { value: "Synth", label: "Synth" }
+    ])
+
     const handleChange = event => {
-        props.changeMaterial(event.target.value)
+        props.changeMaterial(event.value)
     }
+    
+    useEffect(() => {
+        if ( props.chimeNotes.length > 0 ) {
+            setIsDisabled(false)
+        } else {
+            setIsDisabled(true)
+        }
+    }, [ props.chimeNotes])
 
     return (
         <div>
-            <label htmlFor="materials">Choose a material:</label>
-            
-            <select id="materials" onChange={ handleChange }>
-                <option value="Metal" defaultValue >Metal</option>
-                <option value="Kalimba" >Kalimba</option>
-                <option value="Fade" >Fade</option>
-                <option value="Wood" >Wood</option>
-                <option value="Synth" >Synth</option>
-            </select>
+            <Select 
+                options = { options }
+                placeholder = "Choose material..."
+                onChange = { handleChange }
+                isDisabled = { isDisabled }
+            />
         </div>
     )
 }

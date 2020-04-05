@@ -1,9 +1,21 @@
 import React, { useState } from 'react'
 import { useCookies } from 'react-cookie';
 
+import CreatableSelect from 'react-select/creatable';
+
 import { SaveButton } from "./SaveButton"
 
 import { presetScales } from '../resources/presetScales'
+
+const customStyles = {
+    option: (provided, state) => ({
+        ...provided,
+        borderBottom: '1px black',
+        color: 'black',
+        padding: 10,
+      })
+}
+
 
 
 export const ScalesMenu = props => {
@@ -12,14 +24,22 @@ export const ScalesMenu = props => {
     
     const [scales, setScales] = useState({...presetScales, ...cookies.userScales})
 
+    const [value, setValue] = useState(undefined)
+
+    const [ options ] = useState([
+        Object.keys(scales).map( scale => {
+            return { value: scale, label: scale }
+        })
+    ])
+
 
     const handleChange = event => {
-        props.setScale(event.target.value.split(","))
+        setValue(event)
+        props.setScale(scales[event])
+        console.log(event)
     }
 
-    const saveScale = () => {
-        const newScaleName = prompt("What should we call your new set of chimes?");
-
+    const saveScale = newScaleName => {
         if ( newScaleName ) {
             scales[newScaleName] = [...props.chimeNotes];
             setScales(scales)
@@ -28,22 +48,16 @@ export const ScalesMenu = props => {
     }
 
     return (
-        <div>
-            <label htmlFor="scales">Choose a scale:</label>
-            
-            <select id="scales" onChange={ handleChange }>
-
-                <option value="" defaultValue hidden>Choose here</option>
+        <div className = "scalesMenu" >
+            <CreatableSelect 
                 
-                { Object.keys( scales ).map( ( scale, key ) => (
-                    <option 
-                        value={scales[scale]} 
-                        key={key} 
-                    >
-                        {scale}
-                    </option>
-                ))}
-            </select>
+                options = { options }
+                onChange = { handleChange }
+                onCreateOption = { saveScale }
+                placeholder = "Choose scale here..."
+                value = { value }
+                styles={customStyles}
+            />
 
             <SaveButton 
                 saveScale={ saveScale }

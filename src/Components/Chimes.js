@@ -82,7 +82,7 @@ export const Chimes = props => {
 
     const playChime = note => {
         if (isLoaded) {
-            sampler.current.triggerAttackRelease( note, 2.5 );
+            sampler.current.triggerAttackRelease( note, 10 );
         }
     }
 
@@ -117,6 +117,7 @@ export const Chimes = props => {
 
             <MaterialMenu 
                 changeMaterial={ makeSampler }
+                chimeNotes={ chimeNotes }
             />
 
             <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
