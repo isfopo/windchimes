@@ -14,11 +14,15 @@ export const Chime = props => {
     }
 
     const [note, octave] = splitNote(props.note)
+
+    const getWindInterval = windspeed => {
+        return Math.floor( Math.random() * 10000 - ( windspeed * 400 )) + 100  
+    }
     
     const callPlayChime = () => {
         if (isPlaying.current) {
             props.playChime(`${note}${octave}`)
-            setTimeout( callPlayChime, Math.floor( Math.random() * 10000 - ( props.windspeed * 400 )) + 100  )
+            setTimeout( callPlayChime, getWindInterval(props.windspeed))
         }
     }
         
