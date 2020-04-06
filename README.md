@@ -75,11 +75,10 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [ ] Create PWA
 
 - Known Bugs
-    - [ ] Scales menu only updates on second time a scale is chosen
+    - [x] Scales menu only updates on second time a scale is chosen
     - [ ] Changing the scale sometimes does not stop chimes from previous scale for playing
     - [x] Existing chimes shift octave when octave is changed - should ony effect new chimes
     - [x] Lat and lon are undefined when getWindspeed is called
     - [x] Url does not specify octave of each chime. Defaults to 4, but if an octave number is put in it still has a 4 at the end
     - [x] Saving and recalling a scale puts all chimes in octave 4
     - [x] Limit octaves between 2 - 6
-    - [ ] When creating a new chime from an empty set, if the material is set to anything other than metal it will still go back to metal
