@@ -1,3 +1,8 @@
+.app {
+    margin: 5rem;
+    max-width: 600px;
+}
+
 .chimes {
     display: flex;
     max-width: 500px;
