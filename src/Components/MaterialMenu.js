@@ -32,7 +32,7 @@ export const MaterialMenu = props => {
         <div>
             <Select 
                 options = { options }
-                placeholder = "Choose material..."
+                placeholder = { isDisabled ? "Choose material here..." : "Metal" }
                 onChange = { handleChange }
                 isDisabled = { isDisabled }
             />
