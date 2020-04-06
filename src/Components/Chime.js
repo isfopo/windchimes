@@ -21,6 +21,7 @@ export const Chime = props => {
     
     const callPlayChime = () => {
         if (isPlaying.current) {
+            console.log(`${note}${octave} played`, isPlaying)
             props.playChime(`${note}${octave}`)
             setTimeout( callPlayChime, getWindInterval(props.windspeed))
         }
@@ -30,6 +31,7 @@ export const Chime = props => {
         callPlayChime();
 
         return () => {
+            console.log(`${note}${octave} was destroyed`)
             isPlaying.current = false;
         };
         // eslint-disable-next-line

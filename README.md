@@ -76,7 +76,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - Known Bugs
     - [x] Scales menu only updates on second time a scale is chosen
-    - [ ] Changing the scale sometimes does not stop chimes from previous scale for playing
+    - [ ] Changing the scale sometimes does not stop chimes from previous scale for playing - cleanup in chime components not always happening
     - [x] Existing chimes shift octave when octave is changed - should ony effect new chimes
     - [x] Lat and lon are undefined when getWindspeed is called
     - [x] Url does not specify octave of each chime. Defaults to 4, but if an octave number is put in it still has a 4 at the end

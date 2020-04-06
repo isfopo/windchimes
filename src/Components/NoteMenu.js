@@ -3,7 +3,7 @@ import React from 'react'
 export const NoteMenu = props => {
     return (
         <div className="noteMenu">
-            <div className="notes">
+            <div className="noteButtons">
                 <button onClick={ () => { props.addChime("C") }}>C</button>
                 <button onClick={ () => { props.addChime("Db") }}>Db</button>
                 <button onClick={ () => { props.addChime("D") }}>D</button>
@@ -18,11 +18,13 @@ export const NoteMenu = props => {
                 <button onClick={ () => { props.addChime("B") }}>B</button>
             </div>
 
-            <div className="octave">
-                <button onClick={ () => { props.changeOctave(-1)}}>-</button>
+            <div className="octaveButtons">
                 <button onClick={ () => { props.changeOctave(1)}}>+</button>
-                <p>C{props.octave} thru B{props.octave}</p>
+                <button onClick={ () => { props.changeOctave(-1)}}>-</button>
             </div>
+                <p className="octaveDisplay" >
+                    C{props.octave} thru B{props.octave}
+                </p>
         </div>
     )
 }

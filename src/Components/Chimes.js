@@ -100,8 +100,9 @@ export const Chimes = props => {
     }
 
     return (
-        <div>
+        <div className = "app" >
             <NoteMenu 
+                className = "noteMenu"
                 addChime = { addChime }
                 changeOctave = { changeOctave }
                 octave = { octave }
