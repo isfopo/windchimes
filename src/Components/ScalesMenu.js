@@ -11,13 +11,12 @@ export const ScalesMenu = props => {
     
     const [scales, setScales] = useState({...presetScales, ...cookies.userScales})
 
-    const [value, setValue] = useState(undefined)
-
     const [ options, setOptions ] = useState([])
 
     const handleChange = event => {
-        setValue(event)
-        props.setScale(scales[event.value])
+        if ( event.value ) {
+            props.setScale(scales[event.value])
+        }
     }
 
     const saveScale = newScaleName => {
@@ -43,7 +42,6 @@ export const ScalesMenu = props => {
                 onChange = { handleChange }
                 onCreateOption = { saveScale }
                 placeholder = "Choose scale here..."
-                value = { value }
             />
         </div>
     )

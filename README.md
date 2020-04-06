@@ -65,7 +65,11 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - Week 6
     - [ ] Polish UI to make a simple and elegant interface
+    - [ ] Dynamic color palette that changes based off of type of material selected
     - [ ] Each chime should have an SVG that is larger for lower notes and different look based on selected material
+      - [ ] have a top and bottom of the chime
+      - [ ] use "freq" state to determine the number of middle pieces  for each chime, lower notes to have more
+      - [ ] have no top or bottom margins on the middle pieces, no bottom on top and no top on bottom  
     - [ ] Create an SVG of a "bracket" that "holds" the chimes. This should expand to fit more chimes.
     - [ ] Chime graphics vibrate while ringing
 

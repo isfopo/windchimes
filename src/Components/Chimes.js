@@ -72,6 +72,10 @@ export const Chimes = props => {
         setChimeNotes( scale )
     }
 
+    useEffect(() => {
+        // console.log(chimeNotes)
+    }, [chimeNotes])
+
     const changeOctave = shift => {
         const newOctave = octave + shift
 
@@ -129,6 +133,7 @@ export const Chimes = props => {
                         key = { key } 
                         note = { note }
                         windspeed = { windspeed }
+                        numChimes = { chimeNotes.length }
                         playChime = { playChime }
                     />
                 ))}
