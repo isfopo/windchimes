@@ -86,3 +86,4 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Url does not specify octave of each chime. Defaults to 4, but if an octave number is put in it still has a 4 at the end
     - [x] Saving and recalling a scale puts all chimes in octave 4
     - [x] Limit octaves between 2 - 6
+    - [ ] user can make unlimited chimes

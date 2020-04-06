@@ -72,10 +72,6 @@ export const Chimes = props => {
         setChimeNotes( scale )
     }
 
-    useEffect(() => {
-        // console.log(chimeNotes)
-    }, [chimeNotes])
-
     const changeOctave = shift => {
         const newOctave = octave + shift
 
@@ -91,7 +87,9 @@ export const Chimes = props => {
     }
 
     const addChime = note => {
-        setChimeNotes([...chimeNotes, `${note}${octave}`])
+        if ( chimeNotes.length <= 8 ) {
+            setChimeNotes([...chimeNotes, `${note}${octave}`])
+        }
     }
 
     useEffect(() => {
