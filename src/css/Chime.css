@@ -14,3 +14,31 @@
     width: .5em;
     margin: 3em;
 }
+
+.noteMenu {
+    display: inline-flex;
+}
+
+.noteButtons button {
+    display: inline-flex;
+    background-color: aqua;
+    color: black;
+    width: 3em;
+    padding: 6px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.octaveButtons button {
+    display: inline-flex;
+    background-color: aqua;
+    color: black;
+    width: 3em;
+    padding: 6px 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.octaveDisplay {
+
+}
