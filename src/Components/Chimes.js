@@ -96,6 +96,10 @@ export const Chimes = props => {
         props.history.push(`${chimeNotes.toString(',')}`)
     }, [material, chimeNotes, props.history])
 
+    const removeChime = noteToBeRemoved => {
+        setChimeNotes(chimeNotes.filter( note => note !== noteToBeRemoved ))
+    }
+
     const clear = () => {
         setChimeNotes([])
         props.history.push("")
@@ -133,6 +137,7 @@ export const Chimes = props => {
                         windspeed = { windspeed }
                         numChimes = { chimeNotes.length }
                         playChime = { playChime }
+                        removeChime = { removeChime }
                     />
                 ))}
             </div>

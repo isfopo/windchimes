@@ -21,7 +21,6 @@ export const Chime = props => {
     
     const callPlayChime = () => {
         if (isPlaying.current) {
-            // console.log(`${note}${octave} played`, isPlaying)
             props.playChime(`${note}${octave}`)
             setTimeout( callPlayChime, getWindInterval(props.windspeed))
         }
@@ -31,14 +30,13 @@ export const Chime = props => {
         callPlayChime();
 
         return () => {
-            // console.log(`${note}${octave} was destroyed`)
             isPlaying.current = false;
         };
         // eslint-disable-next-line
     }, [])
 
     return (
-        <div className = "chimes" onMouseEnter={ () => { callPlayChime() } }> 
+        <div onClick={ () => {props.removeChime(`${note}${octave}`) } } onMouseEnter={ () => { callPlayChime() } }> 
             <ChimeGraphic 
                 note = { `${note}${octave}` }
                 numChimes = { props.numChimes }
