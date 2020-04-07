@@ -2,7 +2,7 @@
 
 ### Overview
 
-A peaceful windchime that will run in the browser or standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, them save or share their set of chimes.
+A peaceful windchime that will run in the browser or standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, save them or share their set of chimes.
 
 ### Technical Summary
 
@@ -11,7 +11,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - JSS
 - React Cookie ( to save user scales )
 - React Router ( share user scales )
-- React Animation ( to make the chimes vibrate )
+- React Rebound ( to make the chimes vibrate )
 - Electron ( to make standalone app )
 - PWA ( built into create-react-app )
 
