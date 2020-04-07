@@ -5,14 +5,15 @@
 
 .chimes {
     display: flex;
-    max-width: 500px;
+    align-items: flex-start;
+    max-width: 600px;
     margin: auto;
 }
 
 .chime {
-    height: .5em;
-    width: .5em;
-    margin: 3em;
+    display: block;
+    max-width: 150px;
+    margin: 10px;
 }
 
 .noteMenu {
@@ -41,4 +42,14 @@
 
 .octaveDisplay {
 
+}
+
+.clearButton {
+    display: inline-flex;
+    background-color: aqua;
+    color: black;
+    width: 4em;
+    padding: 6px;
+    text-align: center;
+    font-size: 16px;
 }

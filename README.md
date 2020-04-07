@@ -66,12 +66,9 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - Week 6
     - [ ] Polish UI to make a simple and elegant interface
     - [ ] Dynamic color palette that changes based off of type of material selected
-    - [ ] Each chime should have an SVG that is larger for lower notes and different look based on selected material
-      - [ ] have a top and bottom of the chime
-      - [ ] use "freq" state to determine the number of middle pieces  for each chime, lower notes to have more
-      - [ ] have no top or bottom margins on the middle pieces, no bottom on top and no top on bottom  
+    - [x] Each chime should have an SVG that is larger for lower notes and different look based on selected material 
     - [ ] Create an SVG of a "bracket" that "holds" the chimes. This should expand to fit more chimes.
-    - [ ] Chime graphics vibrate while ringing
+    - [x] Chime graphics vibrate while ringing
 
 - Week 7
     - [ ] Deploy Web app
@@ -81,6 +78,9 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 - Known Bugs
     - [x] Scales menu only updates on second time a scale is chosen
     - [ ] Changing the scale sometimes does not stop chimes from previous scale for playing - cleanup in chime components not always happening
+      - [ ] may be due to the mouse over callPlayChimes() creating new instances of setTimeout()
+      - [ ] if so, create different functions 
+    - [ ] buffer will fail if too many chimes are create and destroyed at once
     - [x] Existing chimes shift octave when octave is changed - should ony effect new chimes
     - [x] Lat and lon are undefined when getWindspeed is called
     - [x] Url does not specify octave of each chime. Defaults to 4, but if an octave number is put in it still has a 4 at the end

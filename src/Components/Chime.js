@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import {Animate} from 'react-rebound';
 
 import { ChimeGraphic } from './ChimeGraphic';
 
 import '../css/Chime.css';
 
+
 export const Chime = props => {
 
-    let isPlaying = useRef(true);
+    let isPlaying = useRef(true)
+    let timer = useRef(false)
+
+    const [animate, setAnimate] = useState(false);
 
     const splitNote = noteIn => {
         var regex = new RegExp('([0-9]+)|([a-zA-Z]+)','g');
@@ -21,8 +26,15 @@ export const Chime = props => {
     
     const callPlayChime = () => {
         if (isPlaying.current) {
+            setAnimate(true)
+            setTimeout(() => {
+                setAnimate(false)
+            }, 100)
+            
             props.playChime(`${note}${octave}`)
-            setTimeout( callPlayChime, getWindInterval(props.windspeed))
+            timer.current = setTimeout( () => {
+                callPlayChime();
+            }, getWindInterval(props.windspeed))
         }
     }
         
@@ -30,17 +42,25 @@ export const Chime = props => {
         callPlayChime();
 
         return () => {
+            clearTimeout(timer.current)
+            console.log(timer.current)
             isPlaying.current = false;
         };
         // eslint-disable-next-line
     }, [])
 
     return (
-        <div onClick={ () => {props.removeChime(`${note}${octave}`) } } onMouseEnter={ () => { callPlayChime() } }> 
-            <ChimeGraphic 
-                note = { `${note}${octave}` }
-                numChimes = { props.numChimes }
-            />
+        <div 
+            onMouseEnter={ () => { callPlayChime() } }
+            onClick={ () => {props.removeChime(`${note}${octave}`) } } >
+                <Animate scaleX={animate ? 1.1 : 1} scaleY={animate ? 1.1 : 1}>
+                    <div>
+                        <ChimeGraphic 
+                            note = { `${note}${octave}` }
+                            numChimes = { props.numChimes }
+                        />
+                    </div>
+                </Animate>
         </div>
     );
 }

@@ -10,13 +10,11 @@
     "react": "^16.13.0",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.13.0",
-    "react-jss": "^10.0.4",
+    "react-rebound": "^0.8.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-select": "^3.1.0",
-    "react-sound": "^1.2.0",
-    "react-svg": "^11.0.13",
     "tone": "^13.8.25"
   },
   "scripts": {
