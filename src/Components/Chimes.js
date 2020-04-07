@@ -2,10 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Sampler } from "tone";
-//import { generatePath, Link } from "react-router-dom";
 
 // Components
-import { Chime } from "../Components/Chime";
+import  { Chime}  from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 import { MaterialMenu } from './MaterialMenu';
@@ -18,8 +17,6 @@ import { useInterval } from '../hooks/useInterval';
 import { openWeatherMapAPI } from "../resources/apiKey";
 import { samples } from "../resources/samples";
 
-// Styles
-//import '../css/App.css';
 
 export const Chimes = props => {
 
