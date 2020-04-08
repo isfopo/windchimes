@@ -30,7 +30,7 @@ export const Chime = props => {
             setTimeout(() => {
                 setAnimate(false)
             }, 100)
-            
+
             props.playChime(`${note}${octave}`)
             timer.current = setTimeout( () => {
                 callPlayChime();
@@ -50,10 +50,15 @@ export const Chime = props => {
     }, [])
 
     return (
-        <div 
+        <div  className="chime" 
             onMouseEnter={ () => { callPlayChime() } }
-            onClick={ () => {props.removeChime(`${note}${octave}`) } } >
-                <Animate scaleX={animate ? 1.1 : 1} scaleY={animate ? 1.1 : 1}>
+            onClick={ () => {props.removeChime(`${note}${octave}`) } } 
+            >
+                <Animate 
+                    scaleX={animate ? 1.1 : 1} 
+                    scaleY={animate ? 1.1 : 1}
+                    tension={300} friction={50}
+                >
                     <div>
                         <ChimeGraphic 
                             note = { `${note}${octave}` }
