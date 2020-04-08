@@ -1,11 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #2B3134;
+}
+
 .app {
-    margin: 5rem;
+    background-color: whitesmoke;
+    min-height: 40rem;
+    margin: 3rem;
+    padding: 15px;
+    border-radius: 4%;
     max-width: 600px;
+}
+
+.controls {
+
+}
+
+.instrument {
+    display: block;
+}
+
+.bracket {
+    height: 100px;
+    margin: 10px 0 0 0;
 }
 
 .chimes {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     max-width: 600px;
     margin: auto;
 }
@@ -13,7 +37,7 @@
 .chime {
     display: block;
     max-width: 150px;
-    margin: 10px;
+    margin: -1px 0 0 0;
 }
 
 .noteMenu {
