@@ -4,10 +4,11 @@ import { CookiesProvider } from 'react-cookie';
 import { Sampler } from "tone";
 
 // Components
-import  { Chime}  from "../Components/Chime";
+import { Chime}  from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 import { MaterialMenu } from './MaterialMenu';
+import { BracketGraphic } from './BracketGraphic'
 
 // Hooks
 import { usePosition } from '../hooks/usePosition';
@@ -104,41 +105,46 @@ export const Chimes = props => {
 
     return (
         <div className = "app" >
-            <NoteMenu 
-                className = "noteMenu"
-                addChime = { addChime }
-                changeOctave = { changeOctave }
-                octave = { octave }
-            />
-
-            <CookiesProvider>
-                <ScalesMenu 
-                    setScale={ setScale }
-                    chimeNotes={ chimeNotes }
-                    clear={ clear }
+            <div className="controls">
+                <NoteMenu 
+                    className = "noteMenu"
+                    addChime = { addChime }
+                    changeOctave = { changeOctave }
+                    octave = { octave }
                 />
-            </CookiesProvider>
 
-            <MaterialMenu 
-                changeMaterial={ makeSampler }
-                chimeNotes={ chimeNotes }
-            />
-
-            <button className="clearButton" onClick={ () => { clear() }}>Clear</button>
-
-            <div className="chimes">
-                { chimeNotes.map(( note, key ) => (
-                    <Chime 
-                        key = { key } 
-                        note = { note }
-                        windspeed = { windspeed }
-                        numChimes = { chimeNotes.length }
-                        playChime = { playChime }
-                        removeChime = { removeChime }
+                <CookiesProvider>
+                    <ScalesMenu 
+                        setScale={ setScale }
+                        chimeNotes={ chimeNotes }
+                        clear={ clear }
                     />
-                ))}
+                </CookiesProvider>
+
+                <MaterialMenu 
+                    changeMaterial={ makeSampler }
+                    chimeNotes={ chimeNotes }
+                />
+
+                {/* <button className="clearButton" onClick={ () => { clear() }}>Clear</button> */}
             </div>
 
+            <div className="instrument" >
+                <BracketGraphic />
+
+                <div className="chimes">
+                    { chimeNotes.map(( note, key ) => (
+                        <Chime 
+                            key = { key } 
+                            note = { note }
+                            windspeed = { windspeed }
+                            numChimes = { chimeNotes.length }
+                            playChime = { playChime }
+                            removeChime = { removeChime }
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }

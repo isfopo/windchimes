@@ -7,9 +7,9 @@ import '../css/Chime.css'
 
 export const ChimeGraphic = props => {
 
-    const [midiNum] = useState(Tone.Frequency(props.note).toMidi())
+    const [note] = useState(Tone.Frequency(props.note).toMidi())
 
-    const [height] = useState( useScale(midiNum, [36, 95], [500, 200]) ) // add midi to height calculations here
+    const [height] = useState( useScale(note, [36, 95], [500, 200]) ) // note to height calculations
     const [fill] = useState('#38BCA8')
     const [gleamColor] = useState('#366376')
     const [stroke] = useState('#2B3134')
@@ -21,7 +21,7 @@ export const ChimeGraphic = props => {
     }, [props.numChimes])
 
     return (
-        <div className="chime" >
+        <div>
             <svg 
                 width="100%" height={ height + strokeWidth +  stringLength}  >
 
@@ -61,7 +61,7 @@ export const ChimeGraphic = props => {
                     <text 
                         x={ props.numChimes <= 4 ? 10 : 14 - props.numChimes } y="30" 
                         fontSize= { props.numChimes <= 6 ? 16 : 22 - props.numChimes }
-                    >{props.note}</text>  
+                    > { props.note } </text>  
             </svg>
         </div>
     )
