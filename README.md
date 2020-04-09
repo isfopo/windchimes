@@ -91,7 +91,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - Ideas
     - [x] Set that chimes do not play until user interacts
-    - [ ] When there are no chimes, do not show bracket and display a quick tutorial
+    - [x] When there are no chimes, do not show bracket and display a quick tutorial
 
 - To-Dos
     - [ ] create "themes" object that will define color themes for each material

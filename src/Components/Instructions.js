@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { createUseStyles } from "react-jss";
 
-export const Instructions = () => {
+const useStyles =  createUseStyles({
+    wrapper: {
+        text: ({ theme }) => theme.background2,
+        background: ({ theme }) => theme.foreground,
+        borderColor: ({ theme }) => theme.background2
+    }
+})
+
+export const Instructions = props => {
+
+    const [theme, setTheme] = useState(props.theme)
+
+    const classes = useStyles ({ theme })
+
+    useEffect( () => {
+        setTheme(props.theme)
+    }, [props.theme])
+
     return (
-        <div className="instructions" >
-            <p>Choose from menu above to create a new chime.</p>
-            <p>Swipe over a chime start ringing.</p>
-            <p>Click chime to remove it.</p>
-            <p>Choose from a number of preset scales and materials.</p>
+        <div className={`${classes.wrapper} instructions`} >
+
+                <p>Select a note to add a chime</p>
+                <p>Change octave by pressing "+" and "-"</p>
+                <p>Click on a chime to remove it</p>
+                <p>Select a scale or save your own</p>
+                <p>Change the material to change the sound</p>
+            
         </div>
     )
 }

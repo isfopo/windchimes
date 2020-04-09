@@ -6,24 +6,37 @@ body {
 
 .app {
     background-color: whitesmoke;
-    min-height: 40rem;
+    height: 55rem;
     margin: 3rem;
     padding: 15px;
     border-radius: 4%;
-    max-width: 600px;
+    width: 300px;
 }
 
 .controls {
-
+    display: block;
+    margin: 0 0 1em 0;
 }
 
+.dropdowns {
+}
+
+.instructions {
+    margin: auto;
+    width: 70%;
+    border: solid;
+    border-radius: 15%;
+}
+
+.instructions p {
+    padding: 10px 15px 10px 15px;
+}
 .instrument {
     display: block;
 }
 
 .bracket {
     height: 100px;
-    margin: 10px 0 0 0;
 }
 
 .chimes {
@@ -45,35 +58,19 @@ body {
 }
 
 .noteButtons button {
-    display: inline-flex;
-    background-color: aqua;
-    color: black;
-    width: 3em;
-    padding: 6px;
-    text-align: center;
-    font-size: 16px;
+
 }
 
 .octaveButtons button {
-    display: inline-flex;
-    background-color: aqua;
-    color: black;
-    width: 3em;
-    padding: 6px 20px;
-    text-align: center;
-    font-size: 16px;
+
 }
 
 .octaveDisplay {
 
 }
 
-.clearButton {
-    display: inline-flex;
-    background-color: aqua;
-    color: black;
-    width: 4em;
-    padding: 6px;
-    text-align: center;
-    font-size: 16px;
+@media ( min-width: 768px ) {
+    .app {
+        width: 600px;
+    }
 }

@@ -4,11 +4,12 @@ import { CookiesProvider } from 'react-cookie';
 import { Sampler } from "tone";
 
 // Components
-import { Chime}  from "../Components/Chime";
 import { NoteMenu } from "./NoteMenu";
 import { ScalesMenu } from './ScalesMenu';
 import { MaterialMenu } from './MaterialMenu';
-import { BracketGraphic } from './BracketGraphic'
+import { Instructions } from './Instructions';
+import { BracketGraphic } from './BracketGraphic';
+import { Chime }  from "../Components/Chime";
 
 // Hooks
 import { usePosition } from '../hooks/usePosition';
@@ -17,22 +18,23 @@ import { useInterval } from '../hooks/useInterval';
 // Resources
 import { openWeatherMapAPI } from "../resources/apiKey";
 import { samples } from "../resources/samples";
-
+import { themes } from '../resources/themes';
 
 export const Chimes = props => {
 
     const {latitude, longitude} = usePosition();
 
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
-    const [material, setMaterial] = useState( 'Metal' )
+    const [material, setMaterial] = useState( 'metal' )
     const [windspeed, setWindspeed] = useState(0);
     const [isLoaded, setLoaded] = useState(false);
     const [octave, setOctave] = useState(4);
+    const [theme, setTheme] = useState(themes.metal)
     
     const sampler = useRef(null);
     
     useEffect(() => {
-        makeSampler('Metal')
+        makeSampler('metal')
         // eslint-disable-next-line
     }, [])
 
@@ -47,10 +49,13 @@ export const Chimes = props => {
     }, 60000)
 
     const makeSampler = newMaterial => {
+        setLoaded(false)
+        setTheme(themes[newMaterial])
+
         sampler.current = new Sampler(
             samples,
             {
-                baseUrl : `./Sounds/${newMaterial}/`,
+                baseUrl : `./sounds/${newMaterial}/`,
                 onload: () => { setLoaded(true); }
             }
         ).toMaster();
@@ -98,53 +103,60 @@ export const Chimes = props => {
         setChimeNotes(chimeNotes.filter( note => note !== noteToBeRemoved ))
     }
 
-    const clear = () => {
-        setChimeNotes([])
-        props.history.push("")
-    }
-
     return (
         <div className = "app" >
             <div className="controls">
+                <div className="dropdowns" >
+                    <CookiesProvider>
+                        <ScalesMenu 
+                            setScale={ setScale }
+                            chimeNotes={ chimeNotes }
+                            theme = { theme }
+                        />
+                    </CookiesProvider>
+
+                    <MaterialMenu 
+                        changeMaterial={ makeSampler }
+                        chimeNotes={ chimeNotes }
+                        theme = { theme }
+                    />
+                </div>
+                <br />
                 <NoteMenu 
                     className = "noteMenu"
                     addChime = { addChime }
                     changeOctave = { changeOctave }
                     octave = { octave }
+                    theme = { theme }
                 />
+            </div>
+        
+            { chimeNotes.length === 0 ?
+                <Instructions 
+                    theme = { theme }
+                /> :
 
-                <CookiesProvider>
-                    <ScalesMenu 
-                        setScale={ setScale }
-                        chimeNotes={ chimeNotes }
-                        clear={ clear }
+                <div className="instrument" >
+                    <BracketGraphic 
+                        theme = { theme }
                     />
-                </CookiesProvider>
 
-                <MaterialMenu 
-                    changeMaterial={ makeSampler }
-                    chimeNotes={ chimeNotes }
-                />
-
-                {/* <button className="clearButton" onClick={ () => { clear() }}>Clear</button> */}
-            </div>
-
-            <div className="instrument" >
-                <BracketGraphic />
-
-                <div className="chimes">
-                    { chimeNotes.map(( note, key ) => (
-                        <Chime 
-                            key = { key } 
-                            note = { note }
-                            windspeed = { windspeed }
-                            numChimes = { chimeNotes.length }
-                            playChime = { playChime }
-                            removeChime = { removeChime }
-                        />
-                    ))}
-                </div>
-            </div>
+                    <div className="chimes">
+                        { chimeNotes.map(( note, key ) => (
+                            <Chime 
+                                key = { key } 
+                                note = { note }
+                                windspeed = { windspeed }
+                                numChimes = { chimeNotes.length }
+                                playChime = { playChime }
+                                removeChime = { removeChime }
+                                theme = { theme }
+                            />
+                        ))}
+                    </div>
+                </div>  
+            }
+            
         </div>
     )
 }

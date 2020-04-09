@@ -77,6 +77,7 @@ export const Chime = props => {
                         <ChimeGraphic 
                             note = { `${note}${octave}` }
                             numChimes = { props.numChimes }
+                            theme = { props.theme }
                         />
                     </div>
                 </Animate>
