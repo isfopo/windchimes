@@ -87,8 +87,14 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
       - [ ] may be due to the mouse over callPlayChimes() creating new instances of setTimeout()
       - [ ] if so, create different functions 
     - [ ] buffer will fail if too many chimes are create and destroyed at once
-    - [ ] Animation will engage before user interaction, sound will not. As a result, there are animations without sound
+    - [x] Animation will engage before user interaction, sound will not. As a result, there are animations without sound
 
 - Ideas
-    - [ ] Set that chimes do not play until user interacts - might solve animation and loading problems
+    - [x] Set that chimes do not play until user interacts
     - [ ] When there are no chimes, do not show bracket and display a quick tutorial
+
+- To-Dos
+    - [ ] create "themes" object that will define color themes for each material
+      - [ ] in separate file called 'themes.js' in resources folder
+      - [ ] create function in Chimes.js that changes current theme object when material is changed
+      - [ ] this object will be passed to body, app, buttons, menus, chimes and chime bracket
