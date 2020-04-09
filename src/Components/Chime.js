@@ -5,42 +5,56 @@ import { ChimeGraphic } from './ChimeGraphic';
 
 import '../css/Chime.css';
 
+const splitNote = noteIn => {
+    var regex = new RegExp('([0-9]+)|([a-zA-Z]+)','g');
+    return noteIn.match(regex);
+}
 
 export const Chime = props => {
 
     let isPlaying = useRef(true)
     let timer = useRef(false)
+    let firstRing = useRef(true)
 
     const [animate, setAnimate] = useState(false);
 
-    const splitNote = noteIn => {
-        var regex = new RegExp('([0-9]+)|([a-zA-Z]+)','g');
-        return noteIn.match(regex);
-    }
 
-    const [note, octave] = splitNote(props.note)
+    const [note, setNote] = useState(splitNote(props.note)[0])
+    const [octave, setOctave] = useState(splitNote(props.note)[1])
 
     const getWindInterval = windspeed => {
         return Math.floor( Math.random() * 10000 - ( windspeed * 400 )) + 100  
     }
     
     const callPlayChime = () => {
-        if (isPlaying.current) {
+        if ( isPlaying.current ) {
             setAnimate(true)
             setTimeout(() => {
                 setAnimate(false)
             }, 100)
-
+            
             props.playChime(`${note}${octave}`)
-            timer.current = setTimeout( () => {
-                callPlayChime();
-            }, getWindInterval(props.windspeed))
+
+            if ( firstRing.current ) {
+                windChime()
+                firstRing.current = false
+            }
         }
     }
-        
-    useEffect(() => {
-        callPlayChime();
+    
+    const windChime = () => {
+        timer.current = setTimeout( () => {
+            callPlayChime()
+            windChime();
+        }, getWindInterval(props.windspeed))
+    }
 
+    useEffect(() => {
+        setNote(splitNote(props.note)[0])
+        setOctave(splitNote(props.note)[1])
+    }, [props.note, note, octave])
+
+    useEffect(() => {
         return () => {
             clearTimeout(timer.current)
             console.log(timer.current)
