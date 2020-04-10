@@ -5,12 +5,11 @@ import CreatableSelect from 'react-select/creatable';
 
 import { presetScales } from '../resources/presetScales'
 
+
 export const ScalesMenu = props => {
 
-    const [cookies, setCookie] = useCookies(['userScales'])
-    
-    const [scales, setScales] = useState({...presetScales, ...cookies.userScales})
-
+    const [ cookies, setCookie] = useCookies(['userScales'])
+    const [ scales, setScales] = useState({...presetScales, ...cookies.userScales})
     const [ options, setOptions ] = useState([])
 
     const handleChange = event => {
@@ -36,12 +35,21 @@ export const ScalesMenu = props => {
     }, [scales])
 
     return (
-        <div className = "scalesMenu" >
+        <div className = "scalesMenu menu" >
             <CreatableSelect 
                 options = { options }
                 onChange = { handleChange }
                 onCreateOption = { saveScale }
                 placeholder = "Choose scale here..."
+                theme={theme => ({
+                    ...theme,
+                    colors: {
+                        ...theme.colors,
+                        neutral0: props.theme.highlight1,
+                        primary25: props.theme.highlight2,
+                        primary: props.theme.foreground,
+                    },
+                })}
             />
         </div>
     )

@@ -94,7 +94,14 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] When there are no chimes, do not show bracket and display a quick tutorial
 
 - To-Dos
-    - [ ] create "themes" object that will define color themes for each material
-      - [ ] in separate file called 'themes.js' in resources folder
-      - [ ] create function in Chimes.js that changes current theme object when material is changed
-      - [ ] this object will be passed to body, app, buttons, menus, chimes and chime bracket
+    - [x] create "themes" object that will define color themes for each material
+      - [x] in separate file called 'themes.js' in resources folder
+      - [x] create function in Chimes.js that changes current theme object when material is changed
+      - [x] this object will be passed to:
+        - [x] body
+        - [x] app
+        - [x] menus
+        - [x] buttons
+        - [x] chimes
+        - [x] chime bracket
+    - [ ] have material remain after chimes are empty

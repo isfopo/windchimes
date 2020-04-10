@@ -26,12 +26,22 @@ export const MaterialMenu = props => {
     }, [ props.chimeNotes])
 
     return (
-        <div>
+        <div className="materialMenu menu">
             <Select 
                 options = { options }
                 placeholder = { isDisabled ? "Choose material here..." : "Metal" }
                 onChange = { handleChange }
                 isDisabled = { isDisabled }
+                theme={theme => ({
+                    ...theme,
+                    colors: {
+                        ...theme.colors,
+                        neutral0: props.theme.highlight1, // 
+                        neutral5: props.theme.highlight1,
+                        primary25: props.theme.highlight2,
+                        primary: props.theme.foreground
+                    },
+                })}
             />
         </div>
     )

@@ -1,6 +1,6 @@
 export const themes = {
     metal : {
-        "highlight1" : "#366376",
+        "highlight1" : "#DAE1DC",
         "highlight2" : "#B5CCEB",
         "foreground" : "#38BCA8",
         "background1" : "#9AD2CB",
