@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { createUseStyles } from "react-jss";
 
+import { themes } from '../resources/themes';
+
 const useStyles =  createUseStyles({
     wrapper: {
         text: ({ theme }) => theme.background2,
@@ -11,13 +13,13 @@ const useStyles =  createUseStyles({
 
 export const Instructions = props => {
 
-    const [theme, setTheme] = useState(props.theme)
+    const [theme, setTheme] = useState(themes[props.material])
 
     const classes = useStyles ({ theme })
 
     useEffect( () => {
-        setTheme(props.theme)
-    }, [props.theme])
+        setTheme(themes[props.material])
+    }, [props.material])
 
     return (
         <div className={`${classes.wrapper} instructions`} >

@@ -1,22 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Chimes } from './Chimes';
 
-export const App = () => {
+export const App = props => {
+
+  const [theme, setTheme] = useState(props.theme)
+
+  useEffect (() => {
+    setTheme(props.theme)
+  }, [props.theme])
 
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
-
-      <BrowserRouter>
+      <Router>
         <div className="chime-wrapper">
-          <Route exact path='/' component={Chimes} />
-          <Route path='/:notes' component={Chimes} />
+          <Route 
+            exact path='/' 
+            render = { props => 
+              <Chimes 
+                  theme = {theme}
+                  {...props}
+                />
+              }
+            />
+          <Route 
+            path='/:notes'
+            render = { props => 
+              <Chimes 
+                  theme = { theme }
+                  {...props}
+                />
+              }
+            />
         </div>
-      </BrowserRouter>
+      </Router>
 
     </div>
   );

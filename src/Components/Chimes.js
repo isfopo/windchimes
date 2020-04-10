@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { CookiesProvider } from 'react-cookie';
 import { Sampler } from "tone";
 
@@ -18,7 +18,9 @@ import { useInterval } from '../hooks/useInterval';
 // Resources
 import { openWeatherMapAPI } from "../resources/apiKey";
 import { samples } from "../resources/samples";
-import { themes } from '../resources/themes';
+
+// Context
+import { ChangeThemeContext } from './Body'
 
 export const Chimes = props => {
 
@@ -29,9 +31,10 @@ export const Chimes = props => {
     const [windspeed, setWindspeed] = useState(0);
     const [isLoaded, setLoaded] = useState(false);
     const [octave, setOctave] = useState(4);
-    const [theme, setTheme] = useState(themes.metal)
     
     const sampler = useRef(null);
+
+    const changeTheme = useContext(ChangeThemeContext)
     
     useEffect(() => {
         makeSampler('metal')
@@ -50,7 +53,7 @@ export const Chimes = props => {
 
     const makeSampler = newMaterial => {
         setLoaded(false)
-        setTheme(themes[newMaterial])
+        changeTheme(newMaterial)
 
         sampler.current = new Sampler(
             samples,
@@ -111,14 +114,14 @@ export const Chimes = props => {
                         <ScalesMenu 
                             setScale={ setScale }
                             chimeNotes={ chimeNotes }
-                            theme = { theme }
+                            theme = { props.theme }
                         />
                     </CookiesProvider>
 
                     <MaterialMenu 
                         changeMaterial={ makeSampler }
                         chimeNotes={ chimeNotes }
-                        theme = { theme }
+                        theme = { props.theme }
                     />
                 </div>
                 <br />
@@ -127,18 +130,18 @@ export const Chimes = props => {
                     addChime = { addChime }
                     changeOctave = { changeOctave }
                     octave = { octave }
-                    theme = { theme }
+                    theme = { props.theme }
                 />
             </div>
         
             { chimeNotes.length === 0 ?
                 <Instructions 
-                    theme = { theme }
+                    material = {material}
                 /> :
 
                 <div className="instrument" >
                     <BracketGraphic 
-                        theme = { theme }
+                        theme = { props.theme }
                     />
 
                     <div className="chimes">
@@ -150,7 +153,7 @@ export const Chimes = props => {
                                 numChimes = { chimeNotes.length }
                                 playChime = { playChime }
                                 removeChime = { removeChime }
-                                theme = { theme }
+                                theme = { props.theme }
                             />
                         ))}
                     </div>

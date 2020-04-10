@@ -1,13 +1,13 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: #2B3134;
 }
 
 .app {
     background-color: whitesmoke;
     height: 55rem;
-    margin: 3rem;
+    margin: 0;
+    margin-top: 3rem;
     padding: 15px;
     border-radius: 4%;
     width: 300px;
