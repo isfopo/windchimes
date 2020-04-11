@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import Tone from "tone";
-
-import { useScale } from '../hooks/useScale'
-
 import '../css/Chime.css'
 
+const scale = ( input, inRange, outRange ) => {
+    const [inMin, inMax] = inRange;
+    const [outMin, outMax] = outRange;
+  
+    const percent = (input - inMin) / (inMax - inMin);
+    return percent * (outMax - outMin) + outMin;
+}
+
 export const ChimeGraphic = props => {
-
-    const [note] = useState(Tone.Frequency(props.note).toMidi())
-
-    const [height] = useState( useScale(note, [36, 95], [400, 180]) ) // note to height calculations
+    
+    const [note, setNote ] = useState(Tone.Frequency(props.note).toMidi())
+    
+    const [height, setHeight] = useState( scale(note, [36, 95], [400, 180]) ) // note to height calculations
     const [strokeWidth, setStrokeWidth] = useState(12 - props.numChimes)
     const [stringLength] = useState(150)
-
+    
     useEffect(() => {
         setStrokeWidth(12 - props.numChimes)
     }, [props.numChimes])
+
+    useEffect(() => {
+        setNote(Tone.Frequency(props.note).toMidi())
+        setHeight(scale(note, [36, 95], [400, 180]))
+    }, [note, props.note])
 
     return (
         <div>

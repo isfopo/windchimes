@@ -64,7 +64,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [ ] Fix bugs
 
 - Week 6
-    - [ ] Polish UI to make a simple and elegant interface
+    - [x] Polish UI to make a simple and elegant interface
     - [x] Dynamic color palette that changes based off of type of material selected
     - [x] Each chime should have an SVG that is larger for lower notes and different look based on selected material 
     - [x] Create an SVG of a "bracket" that "holds" the chimes.
@@ -108,4 +108,3 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [ ] choose color themes
     - [ ] refactor note buttons using .map()
     - [ ] add a title screen that goes away on first touch
-    - [ ] add phone touch functionality
