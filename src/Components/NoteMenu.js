@@ -5,8 +5,7 @@ const useStyles =  createUseStyles({
     button: {
         color: ({ theme }) => theme.background2,
         backgroundColor: ({ theme }) => theme.foreground,
-        borderColor: ({ theme }) => theme.background2,
-        
+        borderColor: ({ theme }) => theme.background2
     },
     display: {
         color: ({ theme }) => theme.background2

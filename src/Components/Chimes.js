@@ -26,10 +26,11 @@ export const Chimes = props => {
 
     const {latitude, longitude} = usePosition();
 
+    let isLoaded = useRef(false);
+
     const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
     const [material, setMaterial] = useState( 'metal' )
     const [windspeed, setWindspeed] = useState(0);
-    const [isLoaded, setLoaded] = useState(false);
     const [octave, setOctave] = useState(4);
     
     const sampler = useRef(null);
@@ -52,17 +53,17 @@ export const Chimes = props => {
     }, 60000)
 
     const makeSampler = newMaterial => {
-        setLoaded(false)
-        changeTheme(newMaterial)
-
+        isLoaded.current = false
+        
         sampler.current = new Sampler(
             samples,
             {
                 baseUrl : `./sounds/${newMaterial}/`,
-                onload: () => { setLoaded(true); }
+                onload: () => { isLoaded.current = true }
             }
-        ).toMaster();
+            ).toMaster();
         setMaterial(newMaterial);
+        changeTheme(newMaterial)
     }
 
     const getWindspeed = (lat = -38.2527, lon = 85.7585) => { // default location is Louisville, Ky
@@ -87,7 +88,7 @@ export const Chimes = props => {
     }
 
     const playChime = note => {
-        if (isLoaded) {
+        if (isLoaded.current) {
             sampler.current.triggerAttackRelease( note, 10 );
         }
     }

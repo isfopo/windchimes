@@ -18,7 +18,6 @@ export const Chime = props => {
 
     const [animate, setAnimate] = useState(false);
 
-
     const [note, setNote] = useState(splitNote(props.note)[0])
     const [octave, setOctave] = useState(splitNote(props.note)[1])
 
@@ -52,12 +51,13 @@ export const Chime = props => {
     useEffect(() => {
         setNote(splitNote(props.note)[0])
         setOctave(splitNote(props.note)[1])
+        clearTimeout(timer.current)
+        firstRing.current = true;
     }, [props.note, note, octave])
-
+    
     useEffect(() => {
         return () => {
             clearTimeout(timer.current)
-            console.log(timer.current)
             isPlaying.current = false;
         };
         // eslint-disable-next-line

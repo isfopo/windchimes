@@ -83,10 +83,8 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Saving and recalling a scale puts all chimes in octave 4
     - [x] Limit octaves between 2 - 6
     - [x] user can make unlimited chimes
-    - [ ] Changing the scale sometimes does not stop chimes from previous scale for playing - cleanup in chime components not always happening
-      - [ ] may be due to the mouse over callPlayChimes() creating new instances of setTimeout()
-      - [ ] if so, create different functions 
-    - [ ] buffer will fail if too many chimes are create and destroyed at once
+    - [x] Changing the scale sometimes does not stop chimes from previous scale for playing - cleanup in chime components not always happening
+    - [x] buffer will fail if too many chimes are create and destroyed at once
     - [x] Animation will engage before user interaction, sound will not. As a result, there are animations without sound
 
 - Ideas

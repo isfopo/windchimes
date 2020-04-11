@@ -4,10 +4,10 @@ body {
 }
 
 .app {
-    height: 55rem;
-    margin: 3rem 0;
-    padding: 15px;
-    width: 300px;
+    height: 30rem;
+    margin: 1rem 0;
+    padding: 5px 10px;
+    width: 250px;
 }
 
 .controls {
@@ -17,6 +17,24 @@ body {
 
 .dropdowns .menu {
     margin: 1em 0;
+}
+
+.noteMenu {
+    display: inline-flex;
+}
+
+.noteButtons button {
+    font-size: medium;
+    padding: 10px 24px;
+}
+
+.octaveButtons button {
+    font-size: larger;
+    padding: 10px 24px;
+}
+
+.octaveDisplay {
+
 }
 
 .instructions {
@@ -29,12 +47,13 @@ body {
 .instructions p {
     padding: 10px 15px 10px 15px;
 }
+
 .instrument {
     display: block;
 }
 
 .bracket {
-    height: 100px;
+    height: 100%;
 }
 
 .chimes {
@@ -51,24 +70,16 @@ body {
     margin: -1px 0 0 0;
 }
 
-.noteMenu {
-    display: inline-flex;
-}
-
-.noteButtons button {
-
-}
-
-.octaveButtons button {
-
-}
-
-.octaveDisplay {
-
-}
 
 @media ( min-width: 768px ) {
     .app {
+        height: 55rem;
+        margin: 3rem 0;
         width: 600px;
+        padding: 15px 30px;
+    }
+
+    .bracket {
+        height: 100px;
     }
 }
