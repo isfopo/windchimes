@@ -9,7 +9,7 @@ export const ChimeGraphic = props => {
 
     const [note] = useState(Tone.Frequency(props.note).toMidi())
 
-    const [height] = useState( useScale(note, [36, 95], [500, 200]) ) // note to height calculations
+    const [height] = useState( useScale(note, [36, 95], [400, 180]) ) // note to height calculations
     const [strokeWidth, setStrokeWidth] = useState(12 - props.numChimes)
     const [stringLength] = useState(150)
 

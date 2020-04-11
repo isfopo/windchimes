@@ -65,7 +65,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
 
 - Week 6
     - [ ] Polish UI to make a simple and elegant interface
-    - [ ] Dynamic color palette that changes based off of type of material selected
+    - [x] Dynamic color palette that changes based off of type of material selected
     - [x] Each chime should have an SVG that is larger for lower notes and different look based on selected material 
     - [x] Create an SVG of a "bracket" that "holds" the chimes.
     - [x] Chime graphics vibrate while ringing
@@ -86,6 +86,8 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Changing the scale sometimes does not stop chimes from previous scale for playing - cleanup in chime components not always happening
     - [x] buffer will fail if too many chimes are create and destroyed at once
     - [x] Animation will engage before user interaction, sound will not. As a result, there are animations without sound
+    - [ ] saved scales will only appear in menu after page is refreshed
+    - [ ] size not updating when chime is changed
 
 - Ideas
     - [x] Set that chimes do not play until user interacts
@@ -103,3 +105,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
         - [x] chimes
         - [x] chime bracket
     - [ ] have material remain after chimes are empty
+    - [ ] choose color themes
+    - [ ] refactor note buttons using .map()
+    - [ ] add a title screen that goes away on first touch
+    - [ ] add phone touch functionality

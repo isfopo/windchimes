@@ -14,11 +14,11 @@ export const themes = {
         "background2" : "#3587A4"
     },
     fade : {
-        "highlight1" :  "#fde1de",
-        "highlight2" :  "#ffb2a5",
-        "foreground" : "#fe6347",
-        "background1" : "#8de971",
-        "background2" : "#0e5e55"
+        "highlight1" :  "#FCDDC5",
+        "highlight2" :  "#DACBC1",
+        "foreground" : "#084F8E",
+        "background1" : "#0A2553",
+        "background2" : "#181B28"
     },
     wood : {
         "highlight1" :  "#fde1de",

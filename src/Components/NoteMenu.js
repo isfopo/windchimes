@@ -39,13 +39,15 @@ export const NoteMenu = props => {
                 <button className={classes.button} onClick={ () => { props.addChime("B") }}>B</button>
             </div>
 
-            <div className="octaveButtons">
-                <button className={classes.button} onClick={ () => { props.changeOctave(1)}}>+</button>
-                <button className={classes.button} onClick={ () => { props.changeOctave(-1)}}>-</button>
+            <div className="octaveMenu" >
+                <div className="octaveButtons">
+                    <button className={classes.button} onClick={ () => { props.changeOctave(1)}}>+</button>
+                    <button className={classes.button} onClick={ () => { props.changeOctave(-1)}}>-</button>
+                </div>
+                    <p className={`${classes.display} octaveDisplay`} >
+                        <strong>C{props.octave} - B{props.octave}</strong>
+                    </p>
             </div>
-                <p className={`${classes.display} octaveDisplay`} >
-                    <strong>C{props.octave} thru B{props.octave}</strong>
-                </p>
         </div>
     )
 }
