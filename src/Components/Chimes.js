@@ -88,9 +88,7 @@ export const Chimes = props => {
     }
 
     const playChime = note => {
-        if (isLoaded.current) {
-            sampler.current.triggerAttackRelease( note, 10 );
-        }
+        sampler.current.triggerAttackRelease( note, 10 );
     }
 
     const addChime = note => {
@@ -154,6 +152,7 @@ export const Chimes = props => {
                                 numChimes = { chimeNotes.length }
                                 playChime = { playChime }
                                 removeChime = { removeChime }
+                                isLoaded={isLoaded}
                                 theme = { props.theme }
                             />
                         ))}

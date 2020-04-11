@@ -8,8 +8,8 @@ import { presetScales } from '../resources/presetScales'
 
 export const ScalesMenu = props => {
 
-    const [ cookies, setCookie] = useCookies(['userScales'])
-    const [ scales, setScales] = useState({...presetScales, ...cookies.userScales})
+    const [ cookies, setCookie ] = useCookies(['userScales'])
+    const [ scales ] = useState({...presetScales, ...cookies.userScales})
     const [ options, setOptions ] = useState([])
 
     const handleChange = event => {
@@ -21,7 +21,11 @@ export const ScalesMenu = props => {
     const saveScale = newScaleName => {
         if ( newScaleName ) {
             scales[newScaleName] = [...props.chimeNotes];
-            setScales(scales)
+            setOptions (
+                Object.keys(scales).map( scale => {
+                    return { value: scale, label: scale }
+                })
+            )
             setCookie( 'userScales', scales )
         }
     }

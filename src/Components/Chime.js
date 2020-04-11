@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {Animate} from 'react-rebound';
+import { Animate } from 'react-rebound';
 
 import { ChimeGraphic } from './ChimeGraphic';
 
@@ -26,7 +26,7 @@ export const Chime = props => {
     }
     
     const callPlayChime = () => {
-        if ( isPlaying.current ) {
+        if ( props.isLoaded.current ) {
             setAnimate(true)
             setTimeout(() => {
                 setAnimate(false)
@@ -65,8 +65,8 @@ export const Chime = props => {
 
     return (
         <div  className="chime" 
-            onMouseEnter={ () => { callPlayChime() } }
-            onClick={ () => {props.removeChime(`${note}${octave}`) } } 
+            onPointerEnter={ () => { callPlayChime() } }
+            onDoubleClick={ () => {props.removeChime(`${note}${octave}`) } }
             >
                 <Animate 
                     scaleX={animate ? 1.1 : 1} 
@@ -81,6 +81,6 @@ export const Chime = props => {
                         />
                     </div>
                 </Animate>
-        </div>
+        </div>      
     );
 }
