@@ -12,6 +12,8 @@ const useStyles =  createUseStyles({
     }
 })
 
+const notes = [ "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" ]
+
 export const NoteMenu = props => {
 
     const [theme, setTheme] = useState(props.theme)
@@ -25,18 +27,15 @@ export const NoteMenu = props => {
     return (
         <div className="noteMenu">
             <div className="noteButtons">
-                <button className={classes.button} onClick={ () => { props.addChime("C") }}>C</button>
-                <button className={classes.button} onClick={ () => { props.addChime("Db") }}>Db</button>
-                <button className={classes.button} onClick={ () => { props.addChime("D") }}>D</button>
-                <button className={classes.button} onClick={ () => { props.addChime("Eb") }}>Eb</button>
-                <button className={classes.button} onClick={ () => { props.addChime("E") }}>E</button>
-                <button className={classes.button} onClick={ () => { props.addChime("F") }}>F</button>
-                <button className={classes.button} onClick={ () => { props.addChime("Gb") }}>Gb</button>
-                <button className={classes.button} onClick={ () => { props.addChime("G") }}>G</button>
-                <button className={classes.button} onClick={ () => { props.addChime("Ab") }}>Ab</button>
-                <button className={classes.button} onClick={ () => { props.addChime("A") }}>A</button>
-                <button className={classes.button} onClick={ () => { props.addChime("Bb") }}>Bb</button>
-                <button className={classes.button} onClick={ () => { props.addChime("B") }}>B</button>
+                { notes.map( note => {
+                    return (
+                        <button 
+                            className={classes.button} 
+                            onClick={ () => { props.addChime(`${note}`) }}
+                            >{note}
+                        </button>
+                    )
+                })}
             </div>
 
             <div className="octaveMenu" >
