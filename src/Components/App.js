@@ -14,7 +14,7 @@ const useStyles =  createUseStyles({
 
 export const App = props => {
 
-  const [theme, setTheme] = useState(props.theme)
+  const [ theme, setTheme ] = useState(props.theme)
 
   const classes = useStyles ({ theme })
 
@@ -45,11 +45,9 @@ export const App = props => {
               }
             />
         </div>
-      </Router>
-
+      </Router> 
     </div>
   );
 }
-
 
 export default App;

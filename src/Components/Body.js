@@ -34,8 +34,9 @@ export const Body = () => {
                 <App 
                     theme = { theme }
                     changeTheme = { changeTheme }
-                />
+                /> 
             </div>
         </ChangeThemeContext.Provider>
+
     )
 }
