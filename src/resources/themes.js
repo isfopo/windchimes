@@ -7,11 +7,11 @@ export const themes = {
         "background2" : "#2B3134"
     },
     kalimba : {
-        "highlight1" : "#EFBCD5",
-        "highlight2" : "#B5CCEB",
-        "foreground" : "#fe6347",
-        "background1" : "#9AD2CB",
-        "background2" : "#3587A4"
+        "highlight1" : "#C3BFBF",
+        "highlight2" : "#D2B278",
+        "foreground" : "#D56C33",
+        "background1" : "#77925F",
+        "background2" : "#003348"
     },
     fade : {
         "highlight1" :  "#FCDDC5",
@@ -21,17 +21,17 @@ export const themes = {
         "background2" : "#181B28"
     },
     wood : {
-        "highlight1" :  "#fde1de",
-        "highlight2" :  "#ffb2a5",
-        "foreground" : "#fe6347",
-        "background1" : "#8de971",
-        "background2" : "#0e5e55"
+        "highlight1" :  "#ECB069",
+        "highlight2" :  "#B74B25",
+        "foreground" : "#8F432B",
+        "background1" : "#763C2C",
+        "background2" : "#431811"
     },
     synth : {
-        "highlight1" :  "#fde1de",
-        "highlight2" :  "#ffb2a5",
-        "foreground" : "#fe6347",
-        "background1" : "#8de971",
-        "background2" : "#0e5e55"
+        "highlight1" :  "#55e7ff",
+        "highlight2" :  "#00ccfd",
+        "foreground" : "#ff34b3",
+        "background1" : "#2011a2",
+        "background2" : "#201148"
     }
 }
