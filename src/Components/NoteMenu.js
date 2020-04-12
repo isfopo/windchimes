@@ -27,10 +27,11 @@ export const NoteMenu = props => {
     return (
         <div className="noteMenu">
             <div className="noteButtons">
-                { notes.map( note => {
+                { notes.map( ( note, key ) => {
                     return (
                         <button 
                             className={classes.button} 
+                            key={key}
                             onClick={ () => { props.addChime(`${note}`) }}
                             >{note}
                         </button>
