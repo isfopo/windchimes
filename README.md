@@ -87,7 +87,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] buffer will fail if too many chimes are create and destroyed at once
     - [x] Animation will engage before user interaction, sound will not. As a result, there are animations without sound
     - [x] saved scales will only appear in menu after page is refreshed
-    - [ ] size not updating when chime is changed
+    - [x] size not updating when chime is changed
 
 - Ideas
     - [x] Set that chimes do not play until user interacts
