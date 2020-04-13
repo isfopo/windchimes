@@ -16,7 +16,7 @@ export const themes = {
     fade : {
         "highlight1" :  "#FCDDC5",
         "highlight2" :  "#DACBC1",
-        "foreground" : "#084F8E",
+        "foreground" : "#2F90A8",
         "background1" : "#0A2553",
         "background2" : "#181B28"
     },

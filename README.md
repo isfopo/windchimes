@@ -104,5 +104,6 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
         - [x] buttons
         - [x] chimes
         - [x] chime bracket
-    - [ ] choose color themes
+    - [x] choose color themes
     - [x] refactor note buttons using .map()
+    - [ ] make logo and title
