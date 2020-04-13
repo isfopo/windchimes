@@ -1,0 +1,25 @@
+{
+  "short_name": "windchimes",
+  "name": "windchimes",
+  "icons": [
+    {
+      "src": "favicon_package/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon_package/mstile-70x70.png",
+      "type": "image/png",
+      "sizes": "70x70"
+    },
+    {
+      "src": "favicon_package/mstile-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
