@@ -28,7 +28,10 @@ export const Chimes = props => {
 
     let isLoaded = useRef(false);
 
-    const [chimeNotes, setChimeNotes] = useState( props.match.params.notes ? props.match.params.notes.split(",") : []);
+    const [chimeNotes, setChimeNotes] = useState( 
+        props.match.params.notes ? 
+        props.match.params.notes.split(",").filter(note => note !== 'windchimes') 
+        : []);
     const [material, setMaterial] = useState( 'metal' )
     const [windspeed, setWindspeed] = useState(0);
     const [octave, setOctave] = useState(4);
@@ -88,7 +91,7 @@ export const Chimes = props => {
     }
 
     const playChime = note => {
-        sampler.current.triggerAttackRelease( note, 10 );
+         sampler.current.triggerAttackRelease( note, 10 );
     }
 
     const addChime = note => {
