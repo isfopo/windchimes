@@ -36,7 +36,7 @@ export const App = props => {
               }
             />
           <Route 
-            path='/'
+            path='/:notes'
             render = { props => 
               <Chimes 
                   theme = { theme }
