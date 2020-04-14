@@ -27,7 +27,7 @@ export const App = props => {
       <Router>
         <div className="chime-wrapper">
           <Route 
-            exact path='/' 
+            exact path='/windchimes' 
             render = { props => 
               <Chimes 
                   theme = { theme }
@@ -36,7 +36,7 @@ export const App = props => {
               }
             />
           <Route 
-            path='/:notes'
+            path='/windchimes/:notes'
             render = { props => 
               <Chimes 
                   theme = { theme }
