@@ -101,7 +101,7 @@ export const Chimes = props => {
     }
 
     useEffect(() => { // adds chime notes to url
-        props.history.push(`windchimes/${chimeNotes.toString(',')}`)
+        props.history.push(`${chimeNotes.toString(',')}`)
     }, [material, chimeNotes, props.history])
 
     const removeChime = noteToBeRemoved => {
