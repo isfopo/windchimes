@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2512fa3b1f76dbcb8b663070f2425c73",
+    "revision": "9a0dc5ca49769213d5d1e5fad66cb860",
     "url": "/windchimes/index.html"
   },
   {
-    "revision": "3c3a3b9d41dbbd2295a9",
+    "revision": "6a96f93cfd340650c4b2",
     "url": "/windchimes/static/css/main.62cb8f72.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/windchimes/static/js/2.ee873afd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c3a3b9d41dbbd2295a9",
-    "url": "/windchimes/static/js/main.f928b701.chunk.js"
+    "revision": "6a96f93cfd340650c4b2",
+    "url": "/windchimes/static/js/main.1ce7c405.chunk.js"
   },
   {
     "revision": "5ef56f6836c481f19241",
