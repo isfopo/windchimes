@@ -25,11 +25,11 @@ export const App = props => {
   return (
     <div className={`${classes.wrapper} App`}>
     {console.log(process.env.PUBLIC_URL)}
-      <Router>
+      <Router 
+        basename={process.env.PUBLIC_URL}>
         <div className="chime-wrapper">
           <Route 
             exact path='/' 
-            basename={process.env.PUBLIC_URL}
             render = { props => 
               <Chimes 
                   theme = { theme }
@@ -39,7 +39,6 @@ export const App = props => {
             />
           <Route 
             path='/:notes'
-            basename={process.env.PUBLIC_URL}
             render = { props => 
               <Chimes 
                   theme = { theme }
