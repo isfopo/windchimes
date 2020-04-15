@@ -30,8 +30,7 @@ export const Chimes = props => {
 
     const [chimeNotes, setChimeNotes] = useState( 
         props.match.params.notes ? 
-        props.match.params.notes.split(",").filter(note => note !== 'windchimes') 
-        : []);
+        props.match.params.notes.split(",") : []);
     const [material, setMaterial] = useState( 'metal' )
     const [windspeed, setWindspeed] = useState(0);
     const [octave, setOctave] = useState(4);
