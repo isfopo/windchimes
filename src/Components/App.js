@@ -24,7 +24,6 @@ export const App = props => {
 
   return (
     <div className={`${classes.wrapper} App`}>
-    {console.log(process.env.PUBLIC_URL)}
       <Router 
         basename={process.env.PUBLIC_URL}>
         <div className="chime-wrapper">

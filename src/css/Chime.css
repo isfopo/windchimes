@@ -33,7 +33,6 @@ body {
     margin: .1rem;
     border-radius: 15%;
     width: 15%;
-    opacity: 80%;
     text-align: center;
 }
 
@@ -55,12 +54,10 @@ body {
     height: 35%;
     border-radius: 15%;
     width: 28px;
-    opacity: 80%;
     display: flex;
 }
 
 .noteMenu button:hover {
-    opacity: 100%;
 }
 
 .octaveDisplay {
@@ -73,7 +70,6 @@ body {
     margin: auto;
     margin-bottom: .5rem;
     width: 99%;
-    opacity: 80%;
     border: solid;
     border-radius: 15%;
 }
