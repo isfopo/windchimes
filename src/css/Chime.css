@@ -57,9 +57,6 @@ body {
     display: flex;
 }
 
-.noteMenu button:hover {
-}
-
 .octaveDisplay {
     font-size: 10px;
     padding: .2rem;
