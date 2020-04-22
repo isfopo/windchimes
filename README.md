@@ -71,7 +71,7 @@ A peaceful windchime that will run in the browser or standalone app. Using your 
     - [x] Chime graphics vibrate while ringing
 
 - Week 7
-    - [ ] Deploy Web app
+    - [x] Deploy Web app
     - [ ] Create Electron app
     - [ ] Create PWA
 
