@@ -2,7 +2,7 @@
 
 ### Overview
 
-A peaceful windchime that will run in the browser or standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, save them or share their set of chimes.
+A peaceful windchime that will run in the browser or as a standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, save them or share their set of chimes.
 
 ### Technical Summary
 

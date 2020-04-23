@@ -18,8 +18,8 @@ export const Chime = props => {
 
     const [animate, setAnimate] = useState(false);
 
-    const [note, setNote] = useState(splitNote(props.note)[0])
-    const [octave, setOctave] = useState(splitNote(props.note)[1])
+    const [note, setNote] = useState( splitNote(props.note)[0] )
+    const [octave, setOctave] = useState( splitNote(props.note)[1] )
 
     const getWindInterval = windspeed => {
         return Math.floor( Math.random() * 10000 - ( windspeed * 400 )) + 100  
@@ -30,7 +30,7 @@ export const Chime = props => {
             setAnimate(true)
             setTimeout(() => {
                 setAnimate(false)
-            }, 100)
+            }, 100 )
             
             props.playChime(`${note}${octave}`)
 
@@ -66,7 +66,7 @@ export const Chime = props => {
     return (
         <div  className="chime" 
             onPointerEnter={ () => { callPlayChime() } }
-            onDoubleClick={ () => {props.removeChime(`${note}${octave}`) } }
+            onDoubleClick={ () => { props.removeChime(`${note}${octave}`) } }
             >
                 <Animate 
                     scaleX={animate ? 1.1 : 1} 

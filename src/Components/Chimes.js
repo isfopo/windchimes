@@ -126,7 +126,7 @@ export const Chimes = props => {
                         theme = { props.theme }
                     />
                 </div>
-                <br />
+            <br />
                 <NoteMenu 
                     className = "noteMenu"
                     addChime = { addChime }
@@ -155,7 +155,7 @@ export const Chimes = props => {
                                 numChimes = { chimeNotes.length }
                                 playChime = { playChime }
                                 removeChime = { removeChime }
-                                isLoaded={isLoaded}
+                                isLoaded={ isLoaded }
                                 theme = { props.theme }
                             />
                         ))}
