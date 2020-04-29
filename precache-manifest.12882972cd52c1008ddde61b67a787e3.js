@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2638622eee784bd278c02236782c7f0",
+    "revision": "493a62d7c0f994f31af3e987c0388a62",
     "url": "/windchimes/index.html"
   },
   {
