@@ -72,8 +72,7 @@ A peaceful windchime that will run in the browser or as a standalone app. Using 
 
 - Week 7
     - [x] Deploy Web app
-    - [ ] Create Electron app
-    - [ ] Create PWA
+    - [x] Create PWA
 
 - Known Bugs
     - [x] Scales menu only updates on second time a scale is chosen
