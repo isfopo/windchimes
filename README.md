@@ -12,7 +12,6 @@ A peaceful windchime that will run in the browser or as a standalone app. Using 
 - React Cookie ( to save user scales )
 - React Router ( share user scales )
 - React Rebound ( to make the chimes vibrate )
-- Electron ( to make standalone app )
 - PWA ( built into create-react-app )
 
 ### APIs Used
@@ -61,7 +60,7 @@ A peaceful windchime that will run in the browser or as a standalone app. Using 
 
 - Week 5
     - [x] Add React Router to add scale choices to URL
-    - [ ] Fix bugs
+    - [x] Fix bugs
 
 - Week 6
     - [x] Polish UI to make a simple and elegant interface
