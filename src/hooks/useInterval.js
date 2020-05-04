@@ -1,3 +1,5 @@
+// Adapted from "Making setInterval Declarative with React Hooks" March 2020
+// by Dan Abramov
 // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 
 import { useEffect, useRef } from 'react';
