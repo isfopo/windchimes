@@ -24,12 +24,12 @@ export const Instructions = props => {
     return (
         <div className={`${classes.wrapper} instructions`} >
 
-                <p>Select a note to add a chime</p>
-                <p>Change octave by pressing "+" and "-"</p>
-                <p>Double-click on a chime to remove it</p>
-                <p>Select a scale or save your own</p>
-                <p>Change the material to change the sound</p>
-            
+            <p>Select a note to add a chime</p>
+            <p>Change octave by pressing "+" and "-"</p>
+            <p>Double-click on a chime to remove it</p>
+            <p>Select a scale or save your own</p>
+            <p>Change the material to change the sound</p>
+            <p><a href="https://github.com/isfopo/windchimes">Check it out on GitHub</a></p>
         </div>
     )
 }
