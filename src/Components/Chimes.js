@@ -16,7 +16,7 @@ import { usePosition } from '../hooks/usePosition';
 import { useInterval } from '../hooks/useInterval';
 
 // Resources
-import { openWeatherMapAPI } from "../resources/apiKey";
+import openWeatherMapAPI from "../resources/apiKey";
 import { samples } from "../resources/samples";
 
 // Context
