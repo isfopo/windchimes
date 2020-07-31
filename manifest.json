@@ -4,13 +4,13 @@
   "icons": [
     {
       "src": "favicon_package/favicon.ico",
-      "sizes": "48x48",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "favicon_package/mstile-128x128.png",
+      "src": "favicon_package/mstile-70x70.png",
       "type": "image/png",
-      "sizes": "128x128"
+      "sizes": "70x70"
     },
     {
       "src": "favicon_package/mstile-144x144.png",
