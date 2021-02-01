@@ -4,6 +4,22 @@
 
 A peaceful windchime that will run in the browser or as a standalone app. Using your device's current location this program will use OpenWeatherMap to look up the surrounding windspeed to increase the ringing rate of the chimes. The user can then choose from predetermined notes or choose their own, save them or share their set of chimes.
 
+### How to Run
+
+You can find it live (here)[https://isfopo.github.io/windchimes/] or install it locally
+
+Clone repo to your local machine.
+
+Run
+```
+npm install
+```
+
+Then run
+```
+npm start
+```
+
 ### Technical Summary
 
 - React/Javascript
