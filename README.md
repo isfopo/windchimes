@@ -6,7 +6,7 @@ A peaceful windchime that will run in the browser or as a standalone app. Using 
 
 ### How to Run
 
-You can find it live (here)[https://isfopo.github.io/windchimes/] or install it locally
+You can find it live [here](https://isfopo.github.io/windchimes/) or install it locally
 
 Clone repo to your local machine.
 
