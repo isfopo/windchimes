@@ -17,7 +17,7 @@
     "react-rebound": "^0.8.3",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "3.4.0",
+    "react-scripts": "5.0.1",
     "react-select": "^3.2.0",
     "tone": "^13.8.34",
     "vite": "^5.0.11"
