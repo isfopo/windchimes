@@ -20,7 +20,7 @@
     "react-scripts": "3.4.0",
     "react-select": "^3.2.0",
     "tone": "^13.8.34",
-    "vite": "^5.0.11"
+    "vite": "^5.0.12"
   },
   "scripts": {
     "start": "vite",
